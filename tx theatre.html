@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TX Theatre</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #000;
+            color: white;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)),
+                url('https://res.cloudinary.com/doaj3nv5i/image/upload/v1771725705/ijp7i4pjcgyci2jdkxfc.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 70px;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 3px;
+        }
+
+        .hero p {
+            margin-top: 20px;
+            font-size: 20px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #ccc;
+        }
+
+        .hero button {
+            margin-top: 30px;
+            padding: 15px 30px;
+            font-size: 18px;
+            background: crimson;
+            border: none;
+            border-radius: 30px;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .hero button:hover {
+            background: darkred;
+            transform: scale(1.05);
+        }
+
+        /* ABOUT */
+        .about {
+            padding: 80px 20px;
+            text-align: center;
+            background: #111;
+        }
+
+        .about h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            max-width: 800px;
+            margin: auto;
+            color: #bbb;
+            font-size: 18px;
+        }
+
+        /* SHOWS */
+        .shows {
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .shows h2 {
+            font-size: 40px;
+            margin-bottom: 50px;
+        }
+
+        .show-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+
+        .show-card {
+            background: #111;
+            width: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .show-card:hover {
+            transform: scale(1.05);
+        }
+
+        .show-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .show-card h3 {
+            margin: 15px 0;
+        }
+
+        .show-card p {
+            padding: 0 15px 20px;
+            color: #bbb;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 30px;
+            text-align: center;
+            background: #111;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="cms-root">
+
+        <!-- HERO -->
+        <section class="hero">
+            <div>
+
+                <h1>TX THEATRE</h1>
+                <em>
+                    <p>Where Tembisa Talent Takes Center Stage. Experience powerful performances and unforgettable
+                        stories.
+                    </p>
+                </em>
+                <button class="Get tickects" onclick="window.location.href='Untitled-70.html'">
+                    Get tickets
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section class="about">
+            <h2>About TX Theatre</h2>
+            <p>
+                TX Theatre is a powerhouse of creativity rooted in the heart of Tembisa.
+                From electrifying dramas to unforgettable musicals, we bring stories to life.
+            </p>
+        </section>
+
+        <!-- SHOWS -->
+        <section class="shows">
+            <h2>Award winning Shows</h2>
+            <div class="show-grid">
+
+                <div class="show-card">
+                    <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771513930/wc6ikijpjb3xfiouixhm.jpg">
+                    <h3>Behind Van Vuureen's farm</h3>
+                    <p>A Powerful spiritual show that highlight our roots and where we come from </p>
+                </div>
+
+                <div class="show-card">
+                    <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771524922/uexdpbbkekxgf4rpo0qe.jpg">
+                    <h3>Malepa</h3>
+                    <p>A dazzling musical celebration under bright stage lights.</p>
+                </div>
+
+                <div class="show-card">
+                    <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771524780/f8ddfdspcukonew58eur.jpg">
+                    <h3>Stevovo the puppet</h3>
+                    <p>An emotional journey of ambition, love, and destiny.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <footer>
+            © 2026 TX Theatre. All Rights Reserved.
+        </footer>
+
+    </div>
+
+    <!-- CMS loader: fetch content from Firestore `pages/{docId}` and replace #cms-root if found -->
+    <script src="https://www.gstatic.com/firebasejs/12.9.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore-compat.js"></script>
+    <script>
+        const firebaseConfig = { apiKey: "AIzaSyAYKQEBHvz4J7Y2DkViO0RHUUiNx_gtRdk", authDomain: "tx-theatre.firebaseapp.com", projectId: "tx-theatre", storageBucket: "tx-theatre.firebasestorage.app", messagingSenderId: "950526428876", appId: "1:950526428876:web:b90603dc4b420905f7e469", measurementId: "G-F9BFCX6F25" };
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+        (async () => {
+            try {
+                const docId = 'tx theatre.html';
+                const doc = await db.collection('pages').doc(docId).get();
+                if (doc.exists && doc.data().html) {
+                    const root = document.getElementById('cms-root');
+                    if (root) root.innerHTML = doc.data().html;
+                    // apply extra CSS if present
+                    if (doc.data().extraCss) {
+                        let s = document.getElementById('cms-inline-style');
+                        if (!s) { s = document.createElement('style'); s.id = 'cms-inline-style'; document.head.appendChild(s); }
+                        s.textContent = doc.data().extraCss;
+                    }
+                }
+            } catch (e) { console.error(e); }
+        })();
+    </script>
+
+</body>
+
+</html>

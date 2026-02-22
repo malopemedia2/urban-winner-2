@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TX Theatre | Buy Tickets</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #111;
+            color: white;
+            padding: 20px;
+        }
+
+        /* HEADINGS */
+        h1,
+        h2 {
+            color: crimson;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* SHOW CARDS */
+        .show-card {
+            background: #222;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 500px;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        .show-card:hover {
+            transform: scale(1.02);
+        }
+
+        .show-card img {
+            width: 100%;
+            border-radius: 15px;
+            margin-bottom: 10px;
+        }
+
+        .show-card h2 {
+            margin-bottom: 10px;
+        }
+
+        .show-card p {
+            color: #ccc;
+            margin-bottom: 15px;
+        }
+
+        /* INPUTS */
+        label,
+        select,
+        input {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            background: #333;
+            color: white;
+        }
+
+        /* BUTTON */
+        button {
+            padding: 12px;
+            width: 100%;
+            background: crimson;
+            border: none;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: darkred;
+        }
+
+        /* TOTAL PRICE */
+        .total {
+            font-size: 18px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        /* BANK INFO */
+        .bank-info {
+            background: #222;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        .bank-info p {
+            margin: 5px 0;
+        }
+
+        /* WHATSAPP LINK */
+        .whatsapp-link {
+            display: block;
+            text-align: center;
+            margin-top: 12px;
+            padding: 12px;
+            background: #25D366;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="cms-root">
+
+        <h1>TX Theatre | Buy Tickets</h1>
+
+        <div class="show-card" data-price-front="50" data-price-middle="35" data-price-back="20">
+            <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771725705/ijp7i4pjcgyci2jdkxfc.jpg" alt="Tail of thoughts">
+            <h2>Theatre week</h2>
+            
+
+            <label>Seat Type</label>
+            <select class="seat">
+                <option value="50">Front Row - R50</option>
+
+            </select>
+
+            <label>Number of Tickets</label>
+            <input type="number" class="quantity" value="1" min="1">
+
+            <div class="total">Total: R<span class="total-price">50</span></div>
+
+            <div class="bank-info">
+                <p><strong>Bank Name:</strong> Capitec</p>
+                <p><strong>Account Number:</strong> 1234567890</p>
+                <p><strong>Account Name:</strong> TX Theatre</p>
+                <p>Send payment and use your name as reference.</p>
+            </div>
+            <a href="https://wa.me//27715142823?text=hello%TXTHHEATRE,madepayment"
+            target="_blank"
+            class="whatsapp-link">Send Payment Confirmation</a>
+        </div>
+        </a>
+
+            
+        
+        
+
+
+
+            
+
+    

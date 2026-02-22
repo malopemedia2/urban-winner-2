@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TX Theatre | Shows</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000;
+            font-family: 'Poppins', sans-serif;
+            color: white;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #000;
+            z-index: 1000;
+            border-bottom: 1px solid #111;
+        }
+
+        nav h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            letter-spacing: 2px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: crimson;
+        }
+
+        /* PAGE TITLE */
+        .header {
+            padding-top: 120px;
+            padding-left: 60px;
+            padding-bottom: 40px;
+        }
+
+        .header h2 {
+            font-size: 40px;
+            font-family: 'Playfair Display', serif;
+            position: relative;
+            display: inline-block;
+            animation: glow 2s ease-in-out infinite alternate, float 4s ease-in-out infinite;
+        }
+
+        /* Glow Animation */
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px rgb(33, 20, 220), 0 0 10px crimson;
+            }
+
+            to {
+                text-shadow: 0 0 20px rgb(235, 117, 6), 0 0 40px crimson;
+            }
+        }
+
+        /* Floating Animation */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-6px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        /* SHOW GRID */
+        .show-container {
+            padding: 0 60px 60px 60px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        /* SHOW CARD */
+        .show-card {
+            background: #111;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .show-card img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* HOVER EFFECT */
+        .show-card:hover {
+            transform: scale(1.08);
+            box-shadow: 0 0 20px rgba(220, 20, 60, 0.5);
+            z-index: 5;
+        }
+
+        /* CARD INFO */
+        .card-info {
+            padding: 15px;
+        }
+
+        .card-info h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .card-info p {
+            font-size: 14px;
+            color: #bbb;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #111;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="cms-root">
+
+        <nav>
+            <h1>TX THEATRE</h1>
+            <div>
+                <a href="Untitled-253.html">Home</a>
+            </div>
+        </nav>
+
+        <section class="header">
+            <h2>Now on Stage</h2>
+        </section>
+
+        <section class="show-container">
+
+            <!-- SHOWS 1–26 -->
+            <!-- I kept your previous 1–6 and added 7–26 -->
+
+            <!-- Example format repeated for all shows -->
+
+            <a href="tx theatre.html" style="text-decoration:none; color:white;">
+                <div class="show-card">
+                    <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771714198/bcuvkxy67ld7nawaokww.jpg">
+                    <div class="card-info">
+                        <h3>Molaetsa</h3>
+                        
+                    </div>
+                </div>
+            </a>
+
+            <a href="tx theatre.html" style="text-decoration:none; color:white;">
+                <div class="show-card">
+                    <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771714119/ygd77wvhb5nsdv1gnxjl.jpg">
+                    <div class="card-info">
+                        <h3>The after effect</h3>
+                        
+                    </div>
+                </div>
+            </a>
+            <!-- SHOW 7 -->
+            <a href="tx theatre.html" style="text-decoration:none; color:white;">
+                <div class="show-card">
+                    <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771714473/pz9rgdjfmivmb1fiwvzg.jpg">
+                    <div class="card-info">
+                        <h3>Best Bomba</h3>
+                        
+                    </div>
+                </div>
+            </a>
+
+            <!-- SHOW 8 -->
+            <a href="tx theatre.html" style="text-decoration:none; color:white;">
+                <div class="show-card">
+                    <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771714444/a7mt3caoevxuaswynnev.jpg">
+                    <div class="card-info">
+                        <h3>Bedroom charts</h3>
+                        
+                    </div>
+                </div>
+            </a>
+
+            <!-- SHOW 9 -->
+            <a href="tx theatre.html" style="text-decoration:none; color:white;">
+                <div class="show-card">
+                    <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771714412/zsp0dms6c6toy2pksh7f.jpg">
+                    <div class="card-info">
+                        <h3>Registo</h3>
+                        
+                    </div>
+                </div>
+            </a>
+
+            <!-- SHOW 10 -->
+            <a href="tx theatre.html" style="text-decoration:none; color:white;">
+                <div class="show-card">
+                    <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771714146/c5mipcucujnjjtjjzb21.jpg">
+                    <div class="card-info">
+                        <h3>Trail of Toughts</h3>
+                        
+                    </div>
+                </div>
+            </a>
+
+            <!-- SHOW 11 -->
+            <a href="tx theatre.html" style="text-decoration:none; color:white;">
+                <div class="show-card">
+                    <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771727630/z1aqbg7mg4aywij5glj6.jpg">
+                    <div class="card-info">
+                        <h3>Mmino Le Direto</h3>
+                        
+                    </div>
+                </div>
+            </a>
+
+
+
+            <!-- SHOW 13 -->
+            <a href="tx theatre.html" style="text-decoration:none; color:white;">
+                <div class="show-card">
+                    <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771714167/qjymr6cy8ngxcgw8sqyw.jpg">
+                    <div class="card-info">
+                        <h3>Abelusi</h3>
+                        
+                    </div>
+                </div>
+            </a>
+
+            <!-- SHOW 14 -->
+            <a href="tx theatre.html" style="text-decoration:none; color:white;">
+                <div class="show-card">
+                    <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771714220/qp11rgbmv2tgw9ql4bvg.jpg">
+                    <div class="card-info">
+                        <h3>Ubuciko</h3>
+                        
+                    </div>
+                </div>
+            </a>
+
+            <!-- SHOW 15 -->
+            <a href="tx theatre.html" style="text-decoration:none; color:white;">
+                <div class="show-card">
+                    <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771718044/zfioxvzctxsyhm1fdclx.jpg">
+                    <div class="card-info">
+                        <h3>Vumbi</h3>
+                    
+                    </div>
+                </div>
+            </a>
+
+            <!-- SHOW 16 -->
+            <a href="tx theatre.html" style="text-decoration:none; color:white;">
+                <div class="show-card">
+                    <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771718152/rcxsxoswunjwpbpdsbbj.jpg">
+                    <div class="card-info">
+                        <h3>Untitled deeds</h3>
+                        
+                    </div>
+                </div>
+                <a href="tx theatre.html" style="text-decoration:none; color:white;">
+                    <div class="show-card">
+                        <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771728475/bbwx8qnbtas2ej2tn317.jpg">
+                        <div class="card-info">
+                            <h3>#MOI-Female Essamble</h3>
+                            
+                        </div>
+                    </div>
+            </a>
+
+                            
+                        <!-- Continue pasting your Shows 3–26 here exactly as written -->
+
+        </section>
+
+        <footer>
+            © 2026 TX Theatre. All Rights Reserved.
+        </footer>
+
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/12.9.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore-compat.js"></script>
+    <script>
+        const firebaseConfig = { apiKey: "AIzaSyAYKQEBHvz4J7Y2DkViO0RHUUiNx_gtRdk", authDomain: "tx-theatre.firebaseapp.com", projectId: "tx-theatre", storageBucket: "tx-theatre.firebasestorage.app", messagingSenderId: "950526428876", appId: "1:950526428876:web:b90603dc4b420905f7e469", measurementId: "G-F9BFCX6F25" };
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+        (async () => {
+            try {
+                const docId = 'Untitled-1.html';
+                const doc = await db.collection('pages').doc(docId).get();
+                if (doc.exists && doc.data().html) {
+                    const root = document.getElementById('cms-root');
+                    if (root) root.innerHTML = doc.data().html;
+                    if (doc.data().extraCss) {
+                        let s = document.getElementById('cms-inline-style');
+                        if (!s) { s = document.createElement('style'); s.id = 'cms-inline-style'; document.head.appendChild(s); }
+                        s.textContent = doc.data().extraCss;
+                    }
+                }
+            } catch (e) { console.error(e); }
+        })();
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TX Theatre | Gallery</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0f23;
+            font-family: 'Poppins', sans-serif;
+            color: white;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 50px 0;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: hsla(31, 100%, 50%, 0.478);
+            text-align: center;
+            margin: 50px 0 25px;
+            text-shadow: 0 0 15px rgba(0, 191, 255, 0.7);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 15px;
+            margin-bottom: 60px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 2px solid rgba(0, 191, 255, 0.4);
+            box-shadow: 0 0 20px rgba(0, 191, 255, 0.6);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 35px rgba(0, 191, 255, 1);
+        }
+
+        /* MODAL */
+        #modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 30, 0.95);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        #modal img {
+            max-width: 90%;
+            max-height: 90%;
+            border: 3px solid #00bfff;
+            border-radius: 15px;
+            box-shadow: 0 0 50px rgba(0, 191, 255, 0.9);
+        }
+
+        #close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 40px;
+            color: #00bfff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>SHOWS</h2>
+        <div class="gallery">
+            <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771522831/ot2wowoan9oyjo4ys9nv.jpg" onclick="openModal(this.src)">
+            <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771522888/m3dxy1hmplpyrtqjgtpw.jpg" onclick="openModal(this.src)">
+            <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771522979/w9yd07zh2cgari99yo1w.jpg" onclick="openModal(this.src)">
+            <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771523087/gkja6vmsjxckshtwl1cn.jpg" onclick="openModal(this.src)">
+            <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771523145/oodacpj7t4pvsrlzvx27.jpg" onclick="openModal(this.src)">
+            <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771523243/bketlnk7wpyncstvmv5v.jpg" onclick="openModal(this.src)">
+            <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771523352/qhrmw50pjcjqkairna61.jpg" onclick="openModal(this.src)">
+            <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771523403/hkahwlnip3xutb7tcwmg.jpg" onclick="openModal(this.src)">
+            <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771523556/u9t20cmy1yangkbbsx5r.jpg" onclick="openModal(this.src)">
+            <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771523793/arnb3baadb8boaarc7iz.jpg" onclick="openModal(this.src)">
+            <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771525628/bhpbqwonieettlppf93x.jpg" onclick="openModal(this.src)">
+            <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771525701/tgijauoflz9wd9mycw5h.jpg" onclick="openModal(this.src)">
+            <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771526093/yywuydiyvftkbbq2wayi.jpg" onclick="openModal(this.src)">
+            <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771526148/rlulk0c0imo9jmplc575.jpg" onclick="openModal(this.src)">
+            <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771526277/dcd1ezudx8wh0ofxruv8.jpg" onclick="openModal(this.src)">
+            <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771526384/q1ym2hoyfxmgpbyqpsqn.jpg" onclick="openModal(this.src)">
+            <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771526512/alil6ci5lqmt05bvp14y.jpg" onclick="openModal(this.src)">
+            <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771526594/croe9kkds8tvpag3dwkw.jpg" onclick="openModal(this.src)">
+            <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771526635/ff3cgcnwgwoob8921t3k.jpg" onclick="openModal(this.src)">
+            <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771526710/vqpmlbevy7bchdni1gdt.jpg" onclick="openModal(this.src)">
+            <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771526829/xulkgytygsplg9xljv1a.jpg" onclick="openModal(this.src)">
+            <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771526887/vdbiqh430gjidkddrt6x.jpg" onclick="openModal(this.src)">
+            <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771526969/dal6gk5t5dmkwgffjwvx.jpg" onclick="openModal(this.src)">
+            <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771527085/lvoewlrolxquqei1umtk.jpg" onclick="openModal(this.src)">
+            <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771710080/pyotypb0jdexmqhajlfw.jpg" onclick="openModal(this.src)">
+            <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771710079/by5fwpkrpidmr2uqehti.jpg" onclick="openModal(this.src)">
+            <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771710079/q97qo5anyche21zxixab.jpg" onclick="openModal(this.src)">
+        </div>
+
+    </div>
+
+    <div id="modal" onclick="closeModal()">
+        <span id="close">&times;</span>
+        <img id="modal-img">
+    </div>
+
+    <script>
+        function openModal(src) {
+            document.getElementById("modal").style.display = "flex";
+            document.getElementById("modal-img").src = src;
+        }
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+    </script>
+
+</body>
+
+</html>
+
+        <h2>Award Winning Shows</h2>
+        <div class="gallery">
+            <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771524922/uexdpbbkekxgf4rpo0qe.jpg" onclick="openModal(this.src)">
+            <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771524780/f8ddfdspcukonew58eur.jpg" onclick="openModal(this.src)">
+            <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771513930/wc6ikijpjb3xfiouixhm.jpg" onclick="openModal(this.src)">
+            <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771515830/hft0vgdpaq36lw0l5gnk.jpg" onclick="openModal(this.src)">
+        

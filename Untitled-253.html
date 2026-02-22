@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TX Theatre | Home</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap"
+    rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #0a0f2c 0%, #000 70%);
+      font-family: 'Poppins', sans-serif;
+      color: white;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #000;
+      z-index: 1000;
+      border-bottom: 1px solid #111;
+    }
+
+    nav h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      letter-spacing: 2px;
+    }
+
+    /* HAMBURGER MENU */
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .hamburger div {
+      width: 28px;
+      height: 3px;
+      background: white;
+    }
+
+    .nav-links {
+      position: absolute;
+      top: 70px;
+      right: 50px;
+      background: #111;
+      border-radius: 10px;
+      display: none;
+      flex-direction: column;
+      padding: 15px 25px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      margin: 10px 0;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #00bfff;
+    }
+
+    .nav-links.show {
+      display: flex;
+    }
+
+    /* HEADER */
+    .header {
+      padding-top: 140px;
+      padding-left: 60px;
+      padding-bottom: 40px;
+    }
+
+    .header h2 {
+      font-size: 42px;
+      font-family: 'Playfair Display', serif;
+      animation: glow 2s ease-in-out infinite alternate, float 4s ease-in-out infinite;
+    }
+
+    .header p {
+      margin-top: 15px;
+      font-size: 18px;
+      color: #bbb;
+    }
+
+    /* GLOW ANIMATION */
+    @keyframes glow {
+      from {
+        text-shadow:
+          0 0 5px #00bfff,
+          0 0 10px #00bfff,
+          0 0 20px #0077ff;
+      }
+
+      to {
+        text-shadow:
+          0 0 20px #00bfff,
+          0 0 40px #1e90ff,
+          0 0 60px #0077ff;
+      }
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-6px);
+      }
+
+      100% {
+        transform: translateY(0px);
+      }
+    }
+
+    section {
+      padding: 60px;
+    }
+
+    section h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      margin-bottom: 25px;
+      color: #00bfff;
+    }
+
+    /* CARD GRID */
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: #111;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.6s ease;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-info {
+      padding: 15px;
+    }
+
+    .card-info h4 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .card-info p {
+      font-size: 14px;
+      color: #bbb;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow:
+        0 0 15px #00bfff,
+        0 0 30px rgba(0, 191, 255, 0.6),
+        0 0 50px rgba(0, 119, 255, 0.4);
+    }
+
+    .book-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 15px;
+      background: linear-gradient(45deg, #0077ff, #00bfff);
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: 0.3s;
+      box-shadow: 0 0 10px #00bfff;
+    }
+
+    .readmore:hover {
+      background: linear-gradient(45deg, #00bfff, #1e90ff);
+      box-shadow: 0 0 20px #00bfff;
+    }
+
+    /* TICKER */
+    .ticker {
+      background: #111;
+      overflow: hidden;
+      white-space: nowrap;
+      border-left: 4px solid #00bfff;
+      padding: 12px 0;
+      margin-bottom: 30px;
+    }
+
+    .ticker span {
+      display: inline-block;
+      padding-right: 50px;
+      animation: ticker 20s linear infinite;
+      font-size: 16px;
+      color: gold;
+      /* CHANGED TO GOLD */
+    }
+
+    @keyframes ticker {
+      0% {
+        transform: translateX(100%);
+      }
+
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    #about p {
+      font-size: 16px;
+      color: #bbb;
+      max-width: 800px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #111;
+      color: #777;
+    }
+
+    .visible {
+      opacity: 1 !important;
+      transform: translateY(0px) !important;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <h1>TX THEATRE</h1>
+
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+
+    <div class="nav-links" id="navLinks">
+      <a href="#whatsnew">Whats New</a>
+      <a href="#trending">Trending</a>
+      <a href="Untitled-GALLERY.html">Gallery</a>
+      <a href="Untitled-1.html">Shows</a>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <section class="header">
+    <h2>
+      Welcome to <span style="color: gold;">TX</span>
+      <span style="color: black;">THEATRE</span>
+    </h2>
+    <p>Experience the magic of live performances, unforgettable shows, and Tembisa pride on stage.</p>
+  </section>
+
+  <!-- TICKER -->
+  <section class="ticker">
+    <span>
+      TX Theatre presents Tembisa Theatre Week | Tickets Now Available | Woza uzobloma Nathi
+    </span>
+  </section>
+  <script>
+    const firebaseConfig = { apiKey: "AIzaSyAYKQEBHvz4J7Y2DkViO0RHUUiNx_gtRdk", authDomain: "tx-theatre.firebaseapp.com", projectId: "tx-theatre", storageBucket: "tx-theatre.firebasestorage.app", messagingSenderId: "950526428876", appId: "1:950526428876:web:b90603dc4b420905f7e469", measurementId: "G-F9BFCX6F25" };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+    (async () => {
+      try {
+        const docId = 'Untitled-253.html';
+        const doc = await db.collection('pages').doc(docId).get();
+        if (doc.exists && doc.data().html) {
+          const root = document.getElementById('cms-root');
+          if (root) root.innerHTML = doc.data().html;
+          if (doc.data().extraCss) {
+            let s = document.getElementById('cms-inline-style');
+            if (!s) {
+              s = document.createElement('style');
+              s.id = 'cms-inline-style';
+              document.head.appendChild(s);
+            }
+            s.textContent = doc.data().extraCss;
+          }
+        }
+      } catch (e) { console.error(e); }
+    })();
+  </script>
+
+  </div>
+  </nav>
+
+  <!-- WHAT'S NEW -->
+  <section id="whatsnew">
+    <h3>What's New</h3>
+    <div class="card-container">
+
+      <div class="card">
+        <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771515241/uwddhiilwkwrlgob7iy6.jpg">
+        <div class="card-info">
+          <h4>Celebrating 10 Years</h4>
+          <a href="tx theatre.html" class="book-btn">Book Now</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771515149/kz9ngz2t51m1qhxscprq.jpg">
+        <div class="card-info">
+          <h4>Tembisa Theatre Week</h4>
+          <p>Woza uzobloma nathi</p>
+          <a href="tx theatre.html" class="book-btn">Book Now</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771515352/m2qlhdved2npjmab6t1r.jpg">
+        <div class="card-info">
+          <h4>The Legacy of Mpho Molepo</h4>
+          <p>Celebrating a true icon</p>
+          <a href="tx theatre.html" class="book-btn">Book Now</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TRENDING -->
+  <section id="trending">
+    <h3>Trending</h3>
+    <div class="card-container">
+
+      <div class="card">
+        <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771515830/hft0vgdpaq36lw0l5gnk.jpg">
+        <div class="card-info">
+          <h4>TX Theatre Wins Award</h4>
+          <p>Production 'LEINA' wins Best Silver Standard Bank Ovation Award.</p>
+          <a href="readmore.html" class="readmore">Read More</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771724986/auzvkfxcgcubxmfdnkqn.jpg">
+        <div class="card-info">
+          <h4>Anniversary Gala</h4>
+          <p>Celebrating 10 years of excellence.</p>
+          <a href="readmore 1.html" class="readmore">Read More</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h3>About TX Theatre</h3>
+    <p>
+      TX Theatre has been bringing world-class performances to Tembisa for over a decade.
+      From Broadway-inspired productions to original township stories, we celebrate
+      the performing arts with unmatched passion and cinematic excellence.
+    </p>
+  </section>
+
+  <footer>
+    © 2026 TX Theatre. All Rights Reserved.
+  </footer>
+
+  <script>
+
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("show");
+    }
+    const cards = document.querySelectorAll('.card');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    cards.forEach(card => observer.observe(card));
+  </script>
+
+</body>
+
+</html>
