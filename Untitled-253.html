@@ -291,31 +291,6 @@
       TX Theatre presents Tembisa Theatre Week | Tickets Now Available | Woza uzobloma Nathi
     </span>
   </section>
-  <script>
-    const firebaseConfig = { apiKey: "AIzaSyAYKQEBHvz4J7Y2DkViO0RHUUiNx_gtRdk", authDomain: "tx-theatre.firebaseapp.com", projectId: "tx-theatre", storageBucket: "tx-theatre.firebasestorage.app", messagingSenderId: "950526428876", appId: "1:950526428876:web:b90603dc4b420905f7e469", measurementId: "G-F9BFCX6F25" };
-    firebase.initializeApp(firebaseConfig);
-    const db = firebase.firestore();
-    (async () => {
-      try {
-        const docId = 'Untitled-253.html';
-        const doc = await db.collection('pages').doc(docId).get();
-        if (doc.exists && doc.data().html) {
-          const root = document.getElementById('cms-root');
-          if (root) root.innerHTML = doc.data().html;
-          if (doc.data().extraCss) {
-            let s = document.getElementById('cms-inline-style');
-            if (!s) {
-              s = document.createElement('style');
-              s.id = 'cms-inline-style';
-              document.head.appendChild(s);
-            }
-            s.textContent = doc.data().extraCss;
-          }
-        }
-      } catch (e) { console.error(e); }
-    })();
-  </script>
-
   </div>
   </nav>
 
@@ -411,5 +386,6 @@
   </script>
 
 </body>
+
 
 </html>
