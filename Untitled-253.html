@@ -18,7 +18,7 @@
     }
 
     body {
-      background: radial-gradient(circle at top, #0a0f2c 0%, #000 70%);
+      background: radial-gradient(circle at top, #1a1410 0%, #0d0a08 70%);
       font-family: 'Poppins', sans-serif;
       color: white;
     }
@@ -32,15 +32,18 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: #000;
+      background: linear-gradient(90deg, #1a1410 0%, #2a1f10 100%);
       z-index: 1000;
-      border-bottom: 1px solid #111;
+      border-bottom: 2px solid #d4af37;
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
     }
 
     nav h1 {
       font-family: 'Playfair Display', serif;
       font-size: 26px;
       letter-spacing: 2px;
+      color: #ffd700;
+      text-shadow: 0 0 10px #d4af37, 0 0 20px rgba(212, 175, 55, 0.6);
     }
 
     /* HAMBURGER MENU */
@@ -54,29 +57,34 @@
     .hamburger div {
       width: 28px;
       height: 3px;
-      background: white;
+      background: #ffd700;
+      box-shadow: 0 0 5px #d4af37;
     }
 
     .nav-links {
       position: absolute;
       top: 70px;
       right: 50px;
-      background: #111;
+      background: #1a1410;
       border-radius: 10px;
       display: none;
       flex-direction: column;
       padding: 15px 25px;
+      border: 2px solid #d4af37;
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
     }
 
     .nav-links a {
-      color: white;
+      color: #ffd700;
       text-decoration: none;
       margin: 10px 0;
       transition: 0.3s;
+      text-shadow: 0 0 5px #d4af37;
     }
 
     .nav-links a:hover {
-      color: #00bfff;
+      color: #ffed4e;
+      text-shadow: 0 0 10px #ffd700, 0 0 20px #d4af37;
     }
 
     .nav-links.show {
@@ -93,29 +101,32 @@
     .header h2 {
       font-size: 42px;
       font-family: 'Playfair Display', serif;
-      animation: glow 2s ease-in-out infinite alternate, float 4s ease-in-out infinite;
+      animation: goldGlow 2s ease-in-out infinite alternate, float 4s ease-in-out infinite;
+      color: #ffd700;
     }
 
     .header p {
       margin-top: 15px;
       font-size: 18px;
-      color: #bbb;
+      color: #d4af37;
+      text-shadow: 0 0 5px rgba(212, 175, 55, 0.6);
     }
 
-    /* GLOW ANIMATION */
-    @keyframes glow {
+    /* GOLD GLOW ANIMATION */
+    @keyframes goldGlow {
       from {
         text-shadow:
-          0 0 5px #00bfff,
-          0 0 10px #00bfff,
-          0 0 20px #0077ff;
+          0 0 5px #ffd700,
+          0 0 10px #d4af37,
+          0 0 20px #ffed4e;
       }
 
       to {
         text-shadow:
-          0 0 20px #00bfff,
-          0 0 40px #1e90ff,
-          0 0 60px #0077ff;
+          0 0 20px #ffd700,
+          0 0 40px #d4af37,
+          0 0 60px #ffed4e,
+          0 0 80px rgba(212, 175, 55, 0.8);
       }
     }
 
@@ -133,6 +144,18 @@
       }
     }
 
+    @keyframes sparkle {
+      0%, 100% {
+        opacity: 0.6;
+        box-shadow: 0 0 10px #d4af37, 0 0 20px rgba(212, 175, 55, 0.4);
+      }
+
+      50% {
+        opacity: 1;
+        box-shadow: 0 0 20px #ffd700, 0 0 40px #d4af37, 0 0 60px rgba(212, 175, 55, 0.6);
+      }
+    }
+
     section {
       padding: 60px;
     }
@@ -141,7 +164,8 @@
       font-family: 'Playfair Display', serif;
       font-size: 28px;
       margin-bottom: 25px;
-      color: #00bfff;
+      color: #ffd700;
+      text-shadow: 0 0 10px #d4af37;
     }
 
     /* CARD GRID */
@@ -152,19 +176,22 @@
     }
 
     .card {
-      background: #111;
+      background: linear-gradient(135deg, #1a1410 0%, #2a1f10 100%);
       border-radius: 12px;
       overflow: hidden;
       transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.6s ease;
       cursor: pointer;
       opacity: 0;
       transform: translateY(30px);
+      border: 2px solid #d4af37;
+      animation: sparkle 3s ease-in-out infinite;
     }
 
     .card img {
       width: 100%;
       height: 200px;
       object-fit: cover;
+      border-bottom: 2px solid #d4af37;
     }
 
     .card-info {
@@ -174,47 +201,68 @@
     .card-info h4 {
       font-size: 18px;
       margin-bottom: 8px;
+      color: #ffd700;
     }
 
     .card-info p {
       font-size: 14px;
-      color: #bbb;
+      color: #d4af37;
     }
 
     .card:hover {
       transform: scale(1.05);
       box-shadow:
-        0 0 15px #00bfff,
-        0 0 30px rgba(0, 191, 255, 0.6),
-        0 0 50px rgba(0, 119, 255, 0.4);
+        0 0 15px #ffd700,
+        0 0 30px #d4af37,
+        0 0 50px rgba(212, 175, 55, 0.8),
+        inset 0 0 20px rgba(212, 175, 55, 0.2);
     }
 
     .book-btn {
       display: inline-block;
       margin-top: 10px;
       padding: 8px 15px;
-      background: linear-gradient(45deg, #0077ff, #00bfff);
-      color: white;
+      background: linear-gradient(45deg, #ffd700, #ffed4e);
+      color: #1a1410;
       text-decoration: none;
       border-radius: 6px;
       font-weight: 600;
       transition: 0.3s;
-      box-shadow: 0 0 10px #00bfff;
+      box-shadow: 0 0 10px #d4af37;
+      border: 1px solid #d4af37;
+    }
+
+    .readmore {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 15px;
+      background: linear-gradient(45deg, #ffd700, #ffed4e);
+      color: #1a1410;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: 0.3s;
+      box-shadow: 0 0 10px #d4af37;
+      border: 1px solid #d4af37;
     }
 
     .readmore:hover {
-      background: linear-gradient(45deg, #00bfff, #1e90ff);
-      box-shadow: 0 0 20px #00bfff;
+      background: linear-gradient(45deg, #ffed4e, #ffd700);
+      box-shadow: 0 0 20px #ffd700, 0 0 40px #d4af37;
+      color: #0d0a08;
     }
 
     /* TICKER */
     .ticker {
-      background: #111;
+      background: linear-gradient(90deg, #1a1410 0%, #2a1f10 100%);
       overflow: hidden;
       white-space: nowrap;
-      border-left: 4px solid #00bfff;
+      border-left: 4px solid #ffd700;
+      border-top: 2px solid #d4af37;
+      border-bottom: 2px solid #d4af37;
       padding: 12px 0;
       margin-bottom: 30px;
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
     }
 
     .ticker span {
@@ -222,8 +270,9 @@
       padding-right: 50px;
       animation: ticker 20s linear infinite;
       font-size: 16px;
-      color: gold;
-      /* CHANGED TO GOLD */
+      color: #ffd700;
+      text-shadow: 0 0 5px #d4af37;
+      font-weight: 600;
     }
 
     @keyframes ticker {
@@ -238,15 +287,18 @@
 
     #about p {
       font-size: 16px;
-      color: #bbb;
+      color: #d4af37;
       max-width: 800px;
+      text-shadow: 0 0 5px rgba(212, 175, 55, 0.4);
     }
 
     footer {
       text-align: center;
       padding: 30px;
-      background: #111;
-      color: #777;
+      background: linear-gradient(90deg, #1a1410 0%, #2a1f10 100%);
+      color: #d4af37;
+      border-top: 2px solid #d4af37;
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
     }
 
     .visible {
@@ -279,8 +331,8 @@
   <!-- HEADER -->
   <section class="header">
     <h2>
-      Welcome to <span style="color: gold;">TX</span>
-      <span style="color: black;">THEATRE</span>
+      Welcome to <span style="color: #ffd700; text-shadow: 0 0 15px #d4af37;">TX</span>
+      <span style="color: #ffed4e; text-shadow: 0 0 10px #ffd700;">THEATRE</span>
     </h2>
     <p>Experience the magic of live performances, unforgettable shows, and Tembisa pride on stage.</p>
   </section>
@@ -299,8 +351,6 @@
     <h3>What's New</h3>
     <div class="card-container">
 
-      </div>
-
       <div class="card">
         <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1782032443/k2crigqpfv78lhcpkrsg.jpg">
         <div class="card-info">
@@ -315,7 +365,7 @@
         <div class="card-info">
           <h4>Mxolisi "THEGREAT" Masilela</h4>
           <p>Celebrating a true icon</p>
-          
+          <a href="https://mxolisi-the-great-masilela-p39h.vercel.app/" class="readmore" target="_blank">Visit Portfolio</a>
         </div>
       </div>
 
