@@ -33,7 +33,7 @@
       min-height: 100vh;
     }
 
-    /* NAVBAR */
+    /* NAVBAR — transparent, no box */
     nav {
       position: fixed;
       width: 100%;
@@ -42,10 +42,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: linear-gradient(90deg, rgba(10, 31, 61, 0.95) 0%, rgba(15, 45, 82, 0.95) 100%);
+      background: transparent;
       z-index: 1000;
-      border-bottom: 2px solid #333;
-      box-shadow: none;
+      border-bottom: none;
     }
 
     nav h1 {
@@ -53,7 +52,7 @@
       font-size: 26px;
       letter-spacing: 2px;
       color: var(--gold);
-      text-shadow: none;
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
     }
 
     /* HAMBURGER MENU */
@@ -68,20 +67,19 @@
       width: 28px;
       height: 3px;
       background: var(--muted);
-      box-shadow: none;
     }
 
     .nav-links {
       position: absolute;
       top: 70px;
       right: 50px;
-      background: rgba(10, 31, 61, 0.98);
+      background: rgba(0, 0, 0, 0.95);
       border-radius: 10px;
       display: none;
       flex-direction: column;
       padding: 15px 25px;
-      border: 2px solid #333;
-      box-shadow: none;
+      border: 1px solid #333;
+      min-width: 180px;
     }
 
     .nav-links a {
@@ -89,6 +87,7 @@
       text-decoration: none;
       margin: 10px 0;
       transition: 0.3s;
+      font-size: 15px;
     }
 
     .nav-links a:hover {
@@ -104,21 +103,15 @@
     .header {
       padding-top: 140px;
       padding-left: 60px;
+      padding-right: 60px;
       padding-bottom: 40px;
-    }
-
-    .header h2 {
-      font-size: 42px;
-      font-family: 'Playfair Display', serif;
-      animation: subtleGlow 4s ease-in-out infinite alternate;
-      color: var(--muted);
-      text-shadow: 0 0 15px rgba(0, 168, 255, 0.4);
     }
 
     .header p {
       margin-top: 15px;
       font-size: 18px;
       color: var(--muted);
+      animation: subtleGlow 4s ease-in-out infinite alternate;
     }
 
     /* COLORFUL SPARKLING GOLD TEXT SPANS */
@@ -127,44 +120,44 @@
       font-weight: 700;
       font-family: 'Playfair Display', serif;
       display: inline-block;
-      animation: none;
       letter-spacing: 3px;
       margin: 10px 0;
+      animation: goldSparkle 3s ease-in-out infinite;
     }
 
     .tx-gold-spark span {
       display: inline-block;
-      animation: none;
+      animation: colorShift 2s ease-in-out infinite;
       padding: 0 5px;
     }
 
     .tx-gold-spark span:nth-child(1) {
       color: #ffd700;
-      text-shadow: none;
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
       animation-delay: 0s;
     }
 
     .tx-gold-spark span:nth-child(2) {
       color: #ffed4e;
-      text-shadow: none;
+      text-shadow: 0 0 10px rgba(255, 237, 78, 0.5);
       animation-delay: 0.3s;
     }
 
     .tx-gold-spark span:nth-child(3) {
       color: #00d4ff;
-      text-shadow: none;
+      text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
       animation-delay: 0.6s;
     }
 
     .tx-gold-spark span:nth-child(4) {
       color: #00ff88;
-      text-shadow: none;
+      text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
       animation-delay: 0.9s;
     }
 
     .tx-gold-spark span:nth-child(5) {
       color: #ff00ff;
-      text-shadow: none;
+      text-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
       animation-delay: 1.2s;
     }
 
@@ -173,7 +166,6 @@
       from {
         text-shadow: 0 0 10px rgba(0, 168, 255, 0.3);
       }
-
       to {
         text-shadow: 0 0 20px rgba(0, 168, 255, 0.5);
       }
@@ -184,7 +176,6 @@
         text-shadow: 0 0 5px rgba(255, 215, 0, 0.4);
         letter-spacing: 3px;
       }
-
       50% {
         text-shadow: 
           0 0 10px rgba(255, 215, 0, 0.8),
@@ -199,7 +190,6 @@
         transform: scale(1) translateY(0);
         filter: brightness(1);
       }
-
       50% {
         transform: scale(1.1) translateY(-2px);
         filter: brightness(1.3);
@@ -207,17 +197,9 @@
     }
 
     @keyframes float {
-      0% {
-        transform: translateY(0px);
-      }
-
-      50% {
-        transform: translateY(-6px);
-      }
-
-      100% {
-        transform: translateY(0px);
-      }
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+      100% { transform: translateY(0px); }
     }
 
     @keyframes sparkle {
@@ -225,7 +207,6 @@
         opacity: 0.9;
         box-shadow: 0 0 15px rgba(0, 168, 255, 0.3);
       }
-
       50% {
         opacity: 1;
         box-shadow: 0 0 25px rgba(0, 212, 255, 0.5);
@@ -262,6 +243,7 @@
       border: 2px solid var(--blue-glow);
       animation: sparkle 3s ease-in-out infinite;
       box-shadow: 0 0 20px rgba(0, 168, 255, 0.2);
+      will-change: transform, opacity;
     }
 
     .card img {
@@ -269,6 +251,7 @@
       height: 200px;
       object-fit: cover;
       border-bottom: 2px solid var(--blue-glow);
+      display: block;
     }
 
     .card-info {
@@ -287,7 +270,7 @@
     }
 
     .card:hover {
-      transform: scale(1.05);
+      transform: scale(1.05) translateY(0);
       box-shadow:
         0 0 30px rgba(0, 168, 255, 0.5),
         0 0 60px rgba(0, 212, 255, 0.3),
@@ -333,59 +316,71 @@
       color: #051626;
     }
 
-    /* TICKER */
+    /* TICKER — transparent, no box */
     .ticker {
-      background: linear-gradient(90deg, rgba(10, 31, 61, 0.9) 0%, rgba(15, 45, 82, 0.9) 100%);
+      background: transparent;
       overflow: hidden;
       white-space: nowrap;
-      border-left: 4px solid #333;
-      border-top: 2px solid #333;
-      border-bottom: 2px solid #333;
+      border: none;
       padding: 12px 0;
       margin-bottom: 30px;
-      box-shadow: none;
+      position: relative;
     }
 
-    .ticker span {
+    .ticker-track {
       display: inline-block;
-      padding-right: 50px;
-      animation: ticker 20s linear infinite;
+      white-space: nowrap;
+      animation: ticker 25s linear infinite;
+    }
+
+    .ticker-track span {
+      display: inline-block;
+      padding-right: 80px;
       font-size: 16px;
       color: var(--muted);
       font-weight: 600;
-      text-shadow: none;
     }
 
     @keyframes ticker {
-      0% {
-        transform: translateX(100%);
-      }
-
-      100% {
-        transform: translateX(-100%);
-      }
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
 
     #about p {
       font-size: 16px;
       color: var(--muted);
       max-width: 800px;
+      line-height: 1.6;
     }
 
     footer {
       text-align: center;
       padding: 30px;
-      background: linear-gradient(90deg, rgba(10, 31, 61, 0.95) 0%, rgba(15, 45, 82, 0.95) 100%);
+      background: transparent;
       color: var(--muted);
-      border-top: 2px solid #333;
-      box-shadow: none;
+      border-top: 1px solid #222;
     }
 
     .visible {
       opacity: 1 !important;
       transform: translateY(0px) !important;
     }
+
+    /* No-JS fallback for cards */
+    @media (scripting: none) {
+      .card { opacity: 1; transform: translateY(0); }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 15px 25px; }
+      .header { padding: 120px 25px 30px; }
+      .tx-gold-spark { font-size: 32px; }
+      section { padding: 40px 25px; }
+      .nav-links { right: 25px; }
+    }
   </style>
+<base target="_blank">
 </head>
 
 <body>
@@ -405,6 +400,8 @@
       <a href="#trending">Trending</a>
       <a href="Untitled-GALLERY.html">Gallery</a>
       <a href="Untitled-1.html">Shows</a>
+      <a href="https://txtheatrereels.lovable.app/" target="_blank" rel="noopener">Reels</a>
+      <a href="https://drama-director-desk.lovable.app/" target="_blank" rel="noopener">Schedule</a>
     </div>
   </nav>
 
@@ -422,9 +419,10 @@
 
   <!-- TICKER -->
   <section class="ticker">
-    <span>
-      Woza uzoblomanathi! 🔥 Walala wasala, it's that time again - National Arts Festival energy is here!
-    </span>
+    <div class="ticker-track">
+      <span>🔥 Walala wasala, Morwalo wa setu  - !</span>
+      <span> 🔥 Walala wasala,Now on stage!</span>
+    </div>
   </section>
 
   <!-- WHAT'S NEW -->
@@ -433,20 +431,19 @@
     <div class="card-container">
 
       <div class="card">
-        <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1782032443/k2crigqpfv78lhcpkrsg.jpg">
+        <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1787588481/uyefybo0kbffmmpwalop.jpg" alt="Gymnasium show poster" loading="lazy">
         <div class="card-info">
           <h4>Tx theatre present </h4>
-          <p>GYMNASIUM</p>
-        
+          <p>Tx theatre reels</p>
         </div>
       </div>
 
       <div class="card">
-        <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1782033031/gccz86xrxlpwqbadyprx.jpg">
+        <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1782033031/gccz86xrxlpwqbadyprx.jpg" alt="Mxolisi The Great Masilela" loading="lazy">
         <div class="card-info">
           <h4>Mxolisi "THEGREAT" Masilela</h4>
           <p>Celebrating a true icon</p>
-          <a href="https://mxolisi-the-great-masilela-p39h.vercel.app/" class="readmore" target="_blank">Visit Portfolio</a>
+          <a href="https://mxolisi-the-great-masilela-p39h.vercel.app/" class="readmore" target="_blank" rel="noopener">Visit Portfolio</a>
         </div>
       </div>
 
@@ -459,19 +456,19 @@
     <div class="card-container">
 
       <div class="card">
-        <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771515830/hft0vgdpaq36lw0l5gnk.jpg">
+        <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1787594558/laejpwgtvt59cmioyurk.jpg" alt="TX Theatre wins award" loading="lazy">
         <div class="card-info">
-          <h4>TX Theatre Wins Award</h4>
-          <p>Production 'LEINA' wins Best Silver Standard Bank Ovation Award.</p>
-          <a href="readmore.html" class="readmore">Read More</a>
-        </div>
-      </div>
+          <h4>Morwalo wa Setu</h4>
+          <p>  Tlali is a woman who has lost her power and is now haunted by memories. The village has cast her out, calling her a “thief of life,” but she hides a painful secret: her womb was destroyed by years of abuse, leaving her unable to have children. Catch us on the 29th August.</p>
+            <a href="https://www.webtickets.co.za/v2/event.aspx?itemid=1601409640" class="readmore" target="_blank" rel="noopener">book now</a>
+        </div> 
+       </div>
 
       <div class="card">
-        <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1773021224/cxrf8nxtezkrz0g3cwd0.png">
+        <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771523615/wnrchv7rhfvhwyiqxxhh.jpg" alt="National Arts Festival Makhanda" loading="lazy">
         <div class="card-info">
-          <h4>National Arts Festival</h4>
-          <p>The Tx Theatre going to Makhanda</p>
+          <h4>TX THEATRE HUB</h4>
+          <p>The Tx Theatre hub coming to TX</p>
         </div>
       </div>
 
@@ -493,10 +490,10 @@
   </footer>
 
   <script>
-
     function toggleMenu() {
       document.getElementById("navLinks").classList.toggle("show");
     }
+
     const cards = document.querySelectorAll('.card');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -504,12 +501,19 @@
           entry.target.classList.add('visible');
         }
       });
-    }, { threshold: 0.2 });
+    }, { threshold: 0.15 });
 
     cards.forEach(card => observer.observe(card));
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+      const nav = document.querySelector('nav');
+      const links = document.getElementById('navLinks');
+      if (!nav.contains(e.target) && links.classList.contains('show')) {
+        links.classList.remove('show');
+      }
+    });
   </script>
 
 </body>
-
-
 </html>
