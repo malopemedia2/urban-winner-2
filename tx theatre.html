@@ -8,6 +8,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -104,7 +105,6 @@
             justify-content: center;
         }
 
-
         .show-card {
             background: #111;
             width: 300px;
@@ -134,10 +134,97 @@
 
         /* FOOTER */
         footer {
-            padding: 30px;
+            padding: 40px 20px;
             text-align: center;
             background: #111;
             color: #777;
+            border-top: 1px solid #333;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-social {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: #222;
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 20px;
+            border: 2px solid transparent;
+        }
+
+        .footer-social a:hover {
+            transform: scale(1.15) translateY(-5px);
+            background: crimson;
+            border-color: crimson;
+            box-shadow: 0 0 20px rgba(220, 20, 60, 0.6);
+        }
+
+        .footer-social a.facebook:hover {
+            background: #1877F2;
+            border-color: #1877F2;
+            box-shadow: 0 0 20px rgba(24, 119, 242, 0.6);
+        }
+
+        .footer-social a.instagram:hover {
+            background: #E4405F;
+            border-color: #E4405F;
+            box-shadow: 0 0 20px rgba(228, 64, 95, 0.6);
+        }
+
+        .footer-social a.tiktok:hover {
+            background: #000;
+            border-color: #00f7ef;
+            box-shadow: 0 0 20px rgba(0, 247, 239, 0.6);
+        }
+
+        .footer-contact {
+            margin: 20px 0;
+            font-size: 14px;
+            color: #999;
+        }
+
+        .footer-contact p {
+            margin: 5px 0;
+        }
+
+        .footer-divider {
+            height: 1px;
+            background: #333;
+            margin: 20px 0;
+        }
+
+        .footer-copyright {
+            font-size: 13px;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .footer-social {
+                gap: 15px;
+            }
+
+            .footer-social a {
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
         }
     </style>
 </head>
@@ -156,8 +243,9 @@
                         stories.
                     </p>
                 </em>
-                <button class="Get tickects" onclick="window.location.href=''">
-                    coming soon to TX Theatre
+                <button class="Get tickects" onclick="window.location.href='Untitled-70.html'">
+                    Get tickets
+                </button>
             </div>
         </section>
 
@@ -197,7 +285,33 @@
         </section>
 
         <footer>
-            © 2026 TX Theatre. All Rights Reserved.
+            <div class="footer-content">
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/TXTheatre" target="_blank" rel="noopener noreferrer" class="facebook" title="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/txtheatre?igsi=OGx2bmIyZDg0YWJn" target="_blank" rel="noopener noreferrer" class="instagram" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://vm.tiktok.com/ZS9BLg2nND5Bj-nQ4M1/" target="_blank" rel="noopener noreferrer" class="tiktok" title="TikTok">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                </div>
+
+                <div class="footer-divider"></div>
+
+                <div class="footer-contact">
+                    <p><strong>📞 Contact Us:</strong> +27 (0)71 514 2823</p>
+                    <p><strong>📧 Email:</strong> info@txtheatre.co.za</p>
+                    <p><strong>📍 Location:</strong> Tembisa, Johannesburg</p>
+                </div>
+
+                <div class="footer-divider"></div>
+
+                <div class="footer-copyright">
+                    © 2026 TX Theatre. All Rights Reserved.
+                </div>
+            </div>
         </footer>
 
     </div>
@@ -206,7 +320,7 @@
     <script src="https://www.gstatic.com/firebasejs/12.9.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore-compat.js"></script>
     <script>
-        const firebaseConfig = { apiKey: "AIzaSyAYKQEBHvz4J7Y2DkViO0RHUUiNx_gtRdk", authDomain: "tx-theatre.firebaseapp.com", projectId: "tx-theatre", storageBucket: "tx-theatre.firebasestorage.app", messagingSenderId: "950526428876", appId: "1:950526428876:web:b90603dc4b420905f7e469", measurementId: "G-F9BFCX6F25" };
+        const firebaseConfig = { apiKey: "AIzaSyAYKQEBHvz4J7Y2DkViO0RHUUiNx_gtRdk", authDomain: "tx-theatre.firebaseapp.com", projectId: "tx-theatre", storageBucket: "tx-theatre.firebasestorage.app", messagingSenderId: "123456789", appId: "1:123456789:web:abcdef123456" };
         firebase.initializeApp(firebaseConfig);
         const db = firebase.firestore();
         (async () => {
