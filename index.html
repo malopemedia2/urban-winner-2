@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="google-site-verification" content="SdBAfeBlp0BIfjD1VqRdo1GeI630g7-E3S_YS4Z2eKc" />
   <title>TX Theatre | Welcome</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     * {
       margin: 0;
@@ -76,8 +77,8 @@
       color: #ddd;
     }
 
-    /* Gold Untitled-253 Button */
-    .Untitled-253 {
+    /* Gold Enter Theatre Button */
+    .enter-btn {
       position: absolute;
       top: 20px;
       right: 30px;
@@ -93,8 +94,7 @@
       margin-left: 10px;
     }
 
-    .Untitled-253-253:hover,
-     .gallery               {
+    .enter-btn:hover {
       box-shadow: 0 0 25px gold;
       transform: scale(1.05);
     }
@@ -149,99 +149,116 @@
       font-size: 14px;
       color: #aaa;
     }
+
     .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
-        .footer-social {
-            margin: 20px 0;
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            flex-wrap: wrap;
-        }
+    .footer-social {
+      margin: 20px 0;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
 
-        .footer-social a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            background: #222;
-            border-radius: 50%;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 20px;
-            border: 2px solid transparent;
-        }
+    .footer-social a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      background: #222;
+      border-radius: 50%;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 20px;
+      border: 2px solid transparent;
+    }
 
-        .footer-social a:hover {
-            transform: scale(1.15) translateY(-5px);
-            background: crimson;
-            border-color: crimson;
-            box-shadow: 0 0 20px rgba(220, 20, 60, 0.6);
-        }
+    .footer-social a:hover {
+      transform: scale(1.15) translateY(-5px);
+      background: crimson;
+      border-color: crimson;
+      box-shadow: 0 0 20px rgba(220, 20, 60, 0.6);
+    }
 
-        .footer-social a.facebook:hover {
-            background: #1877F2;
-            border-color: #1877F2;
-            box-shadow: 0 0 20px rgba(24, 119, 242, 0.6);
-        }
+    .footer-social a.facebook:hover {
+      background: #1877F2;
+      border-color: #1877F2;
+      box-shadow: 0 0 20px rgba(24, 119, 242, 0.6);
+    }
 
-        .footer-social a.instagram:hover {
-            background: #E4405F;
-            border-color: #E4405F;
-            box-shadow: 0 0 20px rgba(228, 64, 95, 0.6);
-        }
+    .footer-social a.instagram:hover {
+      background: #E4405F;
+      border-color: #E4405F;
+      box-shadow: 0 0 20px rgba(228, 64, 95, 0.6);
+    }
 
-        .footer-social a.tiktok:hover {
-            background: #000;
-            border-color: #00f7ef;
-            box-shadow: 0 0 20px rgba(0, 247, 239, 0.6);
-        }
+    .footer-social a.tiktok:hover {
+      background: #000;
+      border-color: #00f7ef;
+      box-shadow: 0 0 20px rgba(0, 247, 239, 0.6);
+    }
 
-        .footer-contact {
-            margin: 20px 0;
-            font-size: 14px;
-            color: #999;
-        }
+    .footer-contact {
+      margin: 20px 0;
+      font-size: 14px;
+      color: #999;
+    }
 
-        .footer-contact p {
-            margin: 5px 0;
-        }
+    .footer-contact p {
+      margin: 5px 0;
+    }
 
-        .footer-divider {
-            height: 1px;
-            background: #333;
-            margin: 20px 0;
-        }
+    .footer-divider {
+      height: 1px;
+      background: #333;
+      margin: 20px 0;
+    }
 
-        .footer-copyright {
-            font-size: 13px;
-            color: #666;
-        }
+    .footer-copyright {
+      font-size: 13px;
+      color: #666;
+    }
 
-        @media (max-width: 768px) {
-            .show-container {
-                padding: 0 20px 60px 20px;
-            }
-            
-            .header {
-                padding-left: 20px;
-            }
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 45px;
+      }
 
-            .footer-social {
-                gap: 15px;
-            }
+      .enter-btn {
+        top: 15px;
+        right: 15px;
+        padding: 10px 20px;
+        font-size: 14px;
+      }
 
-            .footer-social a {
-                width: 45px;
-                height: 45px;
-                font-size: 18px;
-            }
-        }
+      section {
+        padding: 40px 5%;
+      }
+
+      section h2 {
+        font-size: 28px;
+      }
+
+      .footer-social {
+        gap: 15px;
+      }
+
+      .footer-social a {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+      }
+
+      .gallery img {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
   </style>
 </head>
 
@@ -252,7 +269,7 @@
     <div class="hero">
       <div class="overlay"></div>
 
-      <button class="Welcome.html" onclick="window.location.href='Welcome.html'">
+      <button class="enter-btn" onclick="window.location.href='Welcome.html'">
         <em>Enter theatre</em>
       </button>
 
@@ -265,10 +282,10 @@
     <!-- ABOUT -->
     <section>
       <h2>About TX Theatre</h2>
-      <p> In the heart of Tembisa, where stories once had nowhere to go, The TX Theatre rose.
-Founded by visionary theatre-maker Mxolisi “The Great” Masilela, The TX Theatre is more than a building. It is a declaration. A refusal to wait for permission. A living home where township voices are not merely heard — they command the stage.
-What began as a bold act of creation — black plastic bags covering windows, household bulbs lighting the stage, young artists refusing to be invisible — has grown into one of South Africa’s most vital independent theatre spaces. Today, The TX Theatre stands as a professional 100-seater auditorium at the Moses Molelekwa Arts Centre, a multi-Naledi Award-winning hub that stages around 50 productions every year across theatre, music, poetry, and ritual performance.
-          </p>
+      <p>In the heart of Tembisa, where stories once had nowhere to go, The TX Theatre rose.
+Founded by visionary theatre-maker Mxolisi "The Great" Masilela, The TX Theatre is more than a building. It is a declaration. A refusal to wait for permission. A living home where township voices [...]
+What began as a bold act of creation — black plastic bags covering windows, household bulbs lighting the stage, young artists refusing to be invisible — has grown into one of South Africa's most[...]
+      </p>
     </section>
 
     <!-- GALLERY -->
@@ -289,78 +306,80 @@ What began as a bold act of creation — black plastic bags covering windows, ho
       </p>
     </section>
 
-    <!-- VISION -->
+    <!-- MISSION -->
     <section>
       <h2>Our Mission</h2>
       <p>We exist to give a chance to those who would never get one.
-Art is expensive. Training is scarce. Stages are often locked behind gates of privilege. At The TX Theatre, we open the doors. We train the untrained, platform the overlooked, and turn raw talent into professional excellence. Many of the artists who walk through our doors have never finished matric. Many leave as directors, writers, performers, and producers who carry Tembisa’s stories onto national and international stages.
-        </p>
-    </section>
-    <section>
-       <h2>What We Do </h2>
-      <P> Tembisa Theatre Week — Our flagship festival, now a decade strong, has become one of the country’s most compelling platforms for new township storytelling.<br><br>
-Kuwamba National Women’s Theatre Festival — Dedicated exclusively to female creators.<br><br>
-Gathering of Stars, 3/10 Theatre Training Program, Independent Theatre Makers Awards, and the Writers’ Lab — nurturing the next generation of playwrights and directors.<br><br>
-Partnerships with The Market Theatre through the TX Theatre Hub, the National Arts Festival, and international platforms that ensure stories born in the township reach the world.
-We produce work that is daring, raw, and rooted in community — work that refuses to recycle the past and instead confronts the present: land, fatherhood, spirituality, identity, injustice, and the sacred.
-      </P>
-      
-    </section>
-    <section>
-
-      <h2> Our Philosophy</h2>
-      <p>Theatre is holy ground.
-It is a place of healing, of remembrance, of provocation, and of return. Here, the ancestors speak. Here, young people find their voice. Here, audiences leave changed. We do not wait for funding or invitations. We build the table ourselves — and then we invite the world to sit at it.
-From a makeshift space in Tembisa to collaborations with The Market Theatre, the National Arts Festival, NIDA in Australia, and global stages, The TX Theatre has proven that excellence is not confined by geography. It is forged by determination, community, and an unshakeable belief that our stories matter.
-        
+Art is expensive. Training is scarce. Stages are often locked behind gates of privilege. At The TX Theatre, we open the doors. We train the untrained, platform the overlooked, and turn raw talent into[...]
       </p>
     </section>
+
+    <!-- WHAT WE DO -->
     <section>
-           <h2>The invitation</h2> 
-      <p>  This is not just our theatre.
+      <h2>What We Do</h2>
+      <p>Tembisa Theatre Week — Our flagship festival, now a decade strong, has become one of the country's most compelling platforms for new township storytelling.<br><br>
+Kuwamba National Women's Theatre Festival — Dedicated exclusively to female creators.<br><br>
+Gathering of Stars, 3/10 Theatre Training Program, Independent Theatre Makers Awards, and the Writers' Lab — nurturing the next generation of playwrights and directors.<br><br>
+Partnerships with The Market Theatre through the TX Theatre Hub, the National Arts Festival, and international platforms that ensure stories born in the township reach the world.
+We produce work that is daring, raw, and rooted in community — work that refuses to recycle the past and instead confronts the present: land, fatherhood, spirituality, identity, injustice, and the s[...]
+      </p>
+    </section>
+
+    <!-- PHILOSOPHY -->
+    <section>
+      <h2>Our Philosophy</h2>
+      <p>Theatre is holy ground.
+It is a place of healing, of remembrance, of provocation, and of return. Here, the ancestors speak. Here, young people find their voice. Here, audiences leave changed. We do not wait for funding or in[...]
+From a makeshift space in Tembisa to collaborations with The Market Theatre, the National Arts Festival, NIDA in Australia, and global stages, The TX Theatre has proven that excellence is not confined[...]
+      </p>
+    </section>
+
+    <!-- INVITATION -->
+    <section>
+      <h2>The Invitation</h2>
+      <p>This is not just our theatre.
 It is yours.
-Whether you are an artist seeking a home, an audience hungry for truth, or a partner ready to invest in the future of South African theatre — Woz’obloma nathi. Come and bloom with us.
+Whether you are an artist seeking a home, an audience hungry for truth, or a partner ready to invest in the future of South African theatre — Woz'obloma nathi. Come and bloom with us.
 The TX Theatre
 Moses Molelekwa Arts Centre
 Tembisa
 Where stories come alive.
 Where the next generation rises.
-Where the township claims its rightful place on the national stage. </p>
-      
-      
+Where the township claims its rightful place on the national stage.
+      </p>
     </section>
-<footer>
-            <div class="footer-content">
-                <div class="footer-social">
-                    <a href="https://www.facebook.com/TXTheatre" target="_blank" rel="noopener noreferrer" class="facebook" title="Facebook">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="https://www.instagram.com/txtheatre?igsi=OGx2bmIyZDg0YWJn" target="_blank" rel="noopener noreferrer" class="instagram" title="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://vm.tiktok.com/ZS9BLg2nND5Bj-nQ4M1/" target="_blank" rel="noopener noreferrer" class="tiktok" title="TikTok">
-                        <i class="fab fa-tiktok"></i>
-                    </a>
-                </div>
 
-                <div class="footer-divider"></div>
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-social">
+          <a href="https://www.facebook.com/TXTheatre" target="_blank" rel="noopener noreferrer" class="facebook" title="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://www.instagram.com/txtheatre?igsi=OGx2bmIyZDg0YWJn" target="_blank" rel="noopener noreferrer" class="instagram" title="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://vm.tiktok.com/ZS9BLg2nND5Bj-nQ4M1/" target="_blank" rel="noopener noreferrer" class="tiktok" title="TikTok">
+            <i class="fab fa-tiktok"></i>
+          </a>
+        </div>
 
-                <div class="footer-contact">
-                    <p><strong>📞 Contact Us:</strong> +27 (0)71 514 2823</p>
-                    <p><strong>📧 Email:</strong> info@txtheatre.co.za</p>
-                    <p><strong>📍 Location:</strong> Tembisa, Johannesburg</p>
-                </div>
+        <div class="footer-divider"></div>
 
-                <div class="footer-divider"></div>
+        <div class="footer-contact">
+          <p><strong>📞 Contact Us:</strong> +27 (0)71 514 2823</p>
+          <p><strong>📧 Email:</strong> info@txtheatre.co.za</p>
+          <p><strong>📍 Location:</strong> Tembisa, Johannesburg</p>
+        </div>
 
-                <div class="footer-copyright">
-                    © 2026 TX Theatre. All Rights Reserved.
-                </div>
-            </div>
-        </footer>
-    
-      
-    
+        <div class="footer-divider"></div>
+
+        <div class="footer-copyright">
+          © 2026 TX Theatre. All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+
   </div>
 
   <!-- Dynamic Gallery Loader -->
@@ -384,6 +403,5 @@ Where the township claims its rightful place on the national stage. </p>
   </script>
 
 </body>
-
 
 </html>
