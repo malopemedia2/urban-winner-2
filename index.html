@@ -43,6 +43,26 @@
     .hero-content {
       position: relative;
       z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .hero-logo {
+      max-width: 200px;
+      height: auto;
+      margin-bottom: 20px;
+      animation: floatLogo 3s ease-in-out infinite;
+    }
+
+    @keyframes floatLogo {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
     }
 
     /* Sparkling Gold TX, Black THEATRE */
@@ -226,6 +246,10 @@
     }
 
     @media (max-width: 768px) {
+      .hero-logo {
+        max-width: 150px;
+      }
+
       .hero h1 {
         font-size: 45px;
       }
@@ -275,6 +299,7 @@
       </button>
 
       <div class="hero-content">
+        <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1773021224/cxrf8nxtezkrz0g3cwd0.png" alt="TX Theatre Logo" class="hero-logo">
         <h1><span class="tx">TX</span> <span class="theatre">THEATRE</span></h1>
         <p>Where Stories Come Alive on Stage</p>
       </div>
