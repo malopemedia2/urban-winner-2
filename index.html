@@ -40,29 +40,32 @@
       background: rgba(0, 0, 0, 0.2);
     }
 
+    .hero-logo {
+      position: absolute;
+      top: 20px;
+      left: 30px;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid gold;
+      z-index: 3;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+      animation: glowLogoBorder 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glowLogoBorder {
+      from {
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+      }
+      to {
+        box-shadow: 0 0 40px rgba(255, 215, 0, 0.8);
+      }
+    }
+
     .hero-content {
       position: relative;
       z-index: 2;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .hero-logo {
-      max-width: 200px;
-      height: auto;
-      margin-bottom: 20px;
-      animation: floatLogo 3s ease-in-out infinite;
-    }
-
-    @keyframes floatLogo {
-      0%, 100% {
-        transform: translateY(0px);
-      }
-      50% {
-        transform: translateY(-20px);
-      }
     }
 
     /* Sparkling Gold TX, Black THEATRE */
@@ -247,7 +250,11 @@
 
     @media (max-width: 768px) {
       .hero-logo {
-        max-width: 150px;
+        top: 15px;
+        left: 15px;
+        width: 80px;
+        height: 80px;
+        border: 2px solid gold;
       }
 
       .hero h1 {
@@ -294,12 +301,13 @@
     <div class="hero">
       <div class="overlay"></div>
 
+      <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1773021224/cxrf8nxtezkrz0g3cwd0.png" alt="TX Theatre Logo" class="hero-logo">
+
       <button class="enter-btn" onclick="window.location.href='Welcome.html'">
         <em>Enter theatre</em>
       </button>
 
       <div class="hero-content">
-        <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1773021224/cxrf8nxtezkrz0g3cwd0.png" alt="TX Theatre Logo" class="hero-logo">
         <h1><span class="tx">TX</span> <span class="theatre">THEATRE</span></h1>
         <p>Where Stories Come Alive on Stage</p>
       </div>
