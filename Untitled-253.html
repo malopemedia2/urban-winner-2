@@ -33,75 +33,161 @@
       min-height: 100vh;
     }
 
-    /* NAVBAR — transparent, no box */
+    /* TOP NAV */
     nav {
       position: fixed;
       width: 100%;
       top: 0;
-      padding: 20px 50px;
+      padding: 15px 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       background: transparent;
       z-index: 1000;
-      border-bottom: none;
+    }
+
+    /* APP LAUNCHER ICON */
+    .app-launcher-btn {
+      display: grid;
+      grid-template-columns: repeat(3, 5px);
+      gap: 3px;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 8px;
+      transition: 0.3s;
+      z-index: 1001;
+    }
+
+    .app-launcher-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .app-launcher-btn span {
+      width: 5px;
+      height: 5px;
+      background: var(--muted);
+      border-radius: 50%;
+      transition: 0.3s;
+    }
+
+    .app-launcher-btn:hover span {
+      background: #00d4ff;
+      box-shadow: 0 0 6px rgba(0, 212, 255, 0.6);
+    }
+
+    /* APP LAUNCHER PANEL */
+    .app-panel {
+      position: fixed;
+      top: 65px;
+      left: 20px;
+      width: 340px;
+      background: rgba(10, 10, 10, 0.98);
+      border: 1px solid #333;
+      border-radius: 16px;
+      padding: 20px;
+      display: none;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      z-index: 999;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(20px);
+    }
+
+    .app-panel.show {
+      display: grid;
+      animation: panelPop 0.25s ease-out;
+    }
+
+    @keyframes panelPop {
+      from { opacity: 0; transform: translateY(-10px) scale(0.96); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .app-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: var(--muted);
+      padding: 14px 6px;
+      border-radius: 12px;
+      transition: 0.3s;
+      gap: 8px;
+    }
+
+    .app-item:hover {
+      background: rgba(255, 255, 255, 0.06);
+      color: #fff;
+    }
+
+    .app-item svg {
+      width: 30px;
+      height: 30px;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: 0.3s;
+    }
+
+    .app-item span {
+      font-size: 11px;
+      text-align: center;
+      line-height: 1.3;
+    }
+
+    /* APP ICON COLORS */
+    .app-home svg { stroke: #ffd700; filter: drop-shadow(0 0 4px rgba(255, 215, 0, 0.3)); }
+    .app-home:hover svg { filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6)); }
+
+    .app-shows svg { stroke: #00d4ff; filter: drop-shadow(0 0 4px rgba(0, 212, 255, 0.3)); }
+    .app-shows:hover svg { filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.6)); }
+
+    .app-gallery svg { stroke: #ff6b9d; filter: drop-shadow(0 0 4px rgba(255, 107, 157, 0.3)); }
+    .app-gallery:hover svg { filter: drop-shadow(0 0 8px rgba(255, 107, 157, 0.6)); }
+
+    .app-reels svg { stroke: #ff4757; filter: drop-shadow(0 0 4px rgba(255, 71, 87, 0.3)); }
+    .app-reels:hover svg { filter: drop-shadow(0 0 8px rgba(255, 71, 87, 0.6)); }
+
+    .app-schedule svg { stroke: #2ed573; filter: drop-shadow(0 0 4px rgba(46, 213, 115, 0.3)); }
+    .app-schedule:hover svg { filter: drop-shadow(0 0 8px rgba(46, 213, 115, 0.6)); }
+
+    .app-findme svg { stroke: #a55eea; filter: drop-shadow(0 0 4px rgba(165, 94, 234, 0.3)); }
+    .app-findme:hover svg { filter: drop-shadow(0 0 8px rgba(165, 94, 234, 0.6)); }
+
+    .app-scripthub svg { stroke: #ffa502; filter: drop-shadow(0 0 4px rgba(255, 165, 2, 0.3)); }
+    .app-scripthub:hover svg { filter: drop-shadow(0 0 8px rgba(255, 165, 2, 0.6)); }
+
+    .app-dialogue svg { stroke: #74b9ff; filter: drop-shadow(0 0 4px rgba(116, 185, 255, 0.3)); }
+    .app-dialogue:hover svg { filter: drop-shadow(0 0 8px rgba(116, 185, 255, 0.6)); }
+
+    /* OVERLAY to close panel when clicking outside */
+    .app-overlay {
+      position: fixed;
+      inset: 0;
+      background: transparent;
+      display: none;
+      z-index: 998;
+    }
+
+    .app-overlay.show {
+      display: block;
     }
 
     nav h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 26px;
+      font-size: 24px;
       letter-spacing: 2px;
       color: var(--gold);
       text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
-    }
-
-    /* HAMBURGER MENU */
-    .hamburger {
-      display: flex;
-      flex-direction: column;
-      cursor: pointer;
-      gap: 5px;
-    }
-
-    .hamburger div {
-      width: 28px;
-      height: 3px;
-      background: var(--muted);
-    }
-
-    .nav-links {
       position: absolute;
-      top: 70px;
-      right: 50px;
-      background: rgba(0, 0, 0, 0.95);
-      border-radius: 10px;
-      display: none;
-      flex-direction: column;
-      padding: 15px 25px;
-      border: 1px solid #333;
-      min-width: 180px;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      text-decoration: none;
-      margin: 10px 0;
-      transition: 0.3s;
-      font-size: 15px;
-    }
-
-    .nav-links a:hover {
-      color: #00d4ff;
-      text-shadow: 0 0 8px rgba(0, 212, 255, 0.6);
-    }
-
-    .nav-links.show {
-      display: flex;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     /* HEADER */
     .header {
-      padding-top: 140px;
+      padding-top: 100px;
       padding-left: 60px;
       padding-right: 60px;
       padding-bottom: 40px;
@@ -360,99 +446,6 @@
       color: var(--muted);
       border-top: 1px solid #222;
     }
-    .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-social {
-            margin: 20px 0;
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            flex-wrap: wrap;
-        }
-
-        .footer-social a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            background: #222;
-            border-radius: 50%;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 20px;
-            border: 2px solid transparent;
-        }
-
-        .footer-social a:hover {
-            transform: scale(1.15) translateY(-5px);
-            background: crimson;
-            border-color: crimson;
-            box-shadow: 0 0 20px rgba(220, 20, 60, 0.6);
-        }
-
-        .footer-social a.facebook:hover {
-            background: #1877F2;
-            border-color: #1877F2;
-            box-shadow: 0 0 20px rgba(24, 119, 242, 0.6);
-        }
-
-        .footer-social a.instagram:hover {
-            background: #E4405F;
-            border-color: #E4405F;
-            box-shadow: 0 0 20px rgba(228, 64, 95, 0.6);
-        }
-
-        .footer-social a.tiktok:hover {
-            background: #000;
-            border-color: #00f7ef;
-            box-shadow: 0 0 20px rgba(0, 247, 239, 0.6);
-        }
-
-        .footer-contact {
-            margin: 20px 0;
-            font-size: 14px;
-            color: #999;
-        }
-
-        .footer-contact p {
-            margin: 5px 0;
-        }
-
-        .footer-divider {
-            height: 1px;
-            background: #333;
-            margin: 20px 0;
-        }
-
-        .footer-copyright {
-            font-size: 13px;
-            color: #666;
-        }
-
-        @media (max-width: 768px) {
-            .show-container {
-                padding: 0 20px 60px 20px;
-            }
-            
-            .header {
-                padding-left: 20px;
-            }
-
-            .footer-social {
-                gap: 15px;
-            }
-
-            .footer-social a {
-                width: 45px;
-                height: 45px;
-                font-size: 18px;
-            }
-        }
 
     .visible {
       opacity: 1 !important;
@@ -466,37 +459,70 @@
 
     /* RESPONSIVE */
     @media (max-width: 768px) {
-      nav { padding: 15px 25px; }
-      .header { padding: 120px 25px 30px; }
+      nav { padding: 12px 20px; }
+      .header { padding: 90px 25px 30px; }
       .tx-gold-spark { font-size: 32px; }
       section { padding: 40px 25px; }
-      .nav-links { right: 25px; }
+      .app-panel { width: 300px; left: 10px; padding: 15px; }
+      .app-item { padding: 12px 4px; }
+      .app-item svg { width: 26px; height: 26px; }
+      .app-item span { font-size: 10px; }
     }
   </style>
-<base target="_blank">
 </head>
 
 <body>
 
-  <!-- NAV -->
+  <!-- APP LAUNCHER OVERLAY -->
+  <div class="app-overlay" id="appOverlay" onclick="toggleAppPanel()"></div>
+
+  <!-- TOP NAV -->
   <nav>
+    <!-- App Launcher -->
+    <div class="app-launcher-btn" onclick="toggleAppPanel()">
+      <span></span><span></span><span></span>
+      <span></span><span></span><span></span>
+      <span></span><span></span><span></span>
+    </div>
+
     <h1>TX THEATRE</h1>
-
-    <div class="hamburger" onclick="toggleMenu()">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-
-    <div class="nav-links" id="navLinks">
-      <a href="#whatsnew">Whats New</a>
-      <a href="#trending">Trending</a>
-      <a href="Untitled-GALLERY.html">Gallery</a>
-      <a href="Untitled-1.html">Shows</a>
-      <a href="https://txtheatrereels.lovable.app/" target="_blank" rel="noopener">Reels</a>
-      <a href="https://drama-director-desk.lovable.app/" target="_blank" rel="noopener">Schedule</a>
-    </div>
   </nav>
+
+  <!-- APP LAUNCHER PANEL -->
+  <div class="app-panel" id="appPanel">
+    <a href="#" class="app-item app-home">
+      <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      <span>Home</span>
+    </a>
+    <a href="Untitled-1.html" class="app-item app-shows">
+      <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+      <span>Shows</span>
+    </a>
+    <a href="Untitled-GALLERY.html" class="app-item app-gallery">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+      <span>Gallery</span>
+    </a>
+    <a href="https://txtheatrereels.lovable.app/" target="_blank" rel="noopener" class="app-item app-reels">
+      <svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+      <span>Reels</span>
+    </a>
+    <a href="https://drama-director-desk.lovable.app/" target="_blank" rel="noopener" class="app-item app-schedule">
+      <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+      <span>Schedule</span>
+    </a>
+    <a href="https://findme.freebuff.app" target="_blank" rel="noopener" class="app-item app-findme">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <span>Find Me</span>
+    </a>
+    <a href="https://scriptcritiquehub.freebuff.app/" target="_blank" rel="noopener" class="app-item app-scripthub">
+      <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+      <span>Script Hub</span>
+    </a>
+    <a href="https://thedialogue.freebuff.app/" target="_blank" rel="noopener" class="app-item app-dialogue">
+      <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+      <span>Dialogue</span>
+    </a>
+  </div>
 
   <!-- HEADER -->
   <section class="header">
@@ -513,8 +539,8 @@
   <!-- TICKER -->
   <section class="ticker">
     <div class="ticker-track">
-      <span>🔥 Walala wasala, Morwalo wa setu  - !</span>
-      <span> 🔥 Walala wasala,Now on stage!</span>
+      <span>Woza uzoblomanathi! 🔥 Walala wasala, it's that time again - National Arts Festival energy is here!</span>
+      <span>Woza uzoblomanathi! 🔥 Walala wasala, it's that time again - National Arts Festival energy is here!</span>
     </div>
   </section>
 
@@ -524,10 +550,10 @@
     <div class="card-container">
 
       <div class="card">
-        <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1787588481/uyefybo0kbffmmpwalop.jpg" alt="Gymnasium show poster" loading="lazy">
+        <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1782032443/k2crigqpfv78lhcpkrsg.jpg" alt="Gymnasium show poster" loading="lazy">
         <div class="card-info">
           <h4>Tx theatre present </h4>
-          <p>Tx theatre reels</p>
+          <p>GYMNASIUM</p>
         </div>
       </div>
 
@@ -549,19 +575,19 @@
     <div class="card-container">
 
       <div class="card">
-        <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1787594558/laejpwgtvt59cmioyurk.jpg" alt="TX Theatre wins award" loading="lazy">
+        <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771515830/hft0vgdpaq36lw0l5gnk.jpg" alt="TX Theatre wins award" loading="lazy">
         <div class="card-info">
-          <h4>Morwalo wa Setu</h4>
-          <p>  Tlali is a woman who has lost her power and is now haunted by memories. The village has cast her out, calling her a “thief of life,” but she hides a painful secret: her womb was destroyed by years of abuse, leaving her unable to have children. Catch us on the 29th August.</p>
-            <a href="https://www.webtickets.co.za/v2/event.aspx?itemid=1601409640" class="readmore" target="_blank" rel="noopener">book now</a>
-        </div> 
-       </div>
+          <h4>TX Theatre Wins Award</h4>
+          <p>Production 'LEINA' wins Best Silver Standard Bank Ovation Award.</p>
+          <a href="readmore.html" class="readmore">Read More</a>
+        </div>
+      </div>
 
       <div class="card">
-        <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1771523615/wnrchv7rhfvhwyiqxxhh.jpg" alt="National Arts Festival Makhanda" loading="lazy">
+        <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1773021224/cxrf8nxtezkrz0g3cwd0.png" alt="National Arts Festival Makhanda" loading="lazy">
         <div class="card-info">
-          <h4>TX THEATRE HUB</h4>
-          <p>The Tx Theatre hub coming to TX</p>
+          <h4>National Arts Festival</h4>
+          <p>The Tx Theatre going to Makhanda</p>
         </div>
       </div>
 
@@ -580,38 +606,12 @@
 
   <footer>
     © 2026 TX Theatre. All Rights Reserved.
-            <div class="footer-content">
-                <div class="footer-social">
-                    <a href="https://www.facebook.com/TXTheatre" target="_blank" rel="noopener noreferrer" class="facebook" title="Facebook">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="https://www.instagram.com/txtheatre?igsi=OGx2bmIyZDg0YWJn" target="_blank" rel="noopener noreferrer" class="instagram" title="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://vm.tiktok.com/ZS9BLg2nND5Bj-nQ4M1/" target="_blank" rel="noopener noreferrer" class="tiktok" title="TikTok">
-                        <i class="fab fa-tiktok"></i>
-                    </a>
-                </div>
-
-                <div class="footer-divider"></div>
-
-                <div class="footer-contact">
-                    <p><strong>📞 Contact Us:</strong> +27 (0)71 514 2823</p>
-                    <p><strong>📧 Email:</strong> info@txtheatre.co.za</p>
-                    <p><strong>📍 Location:</strong> Tembisa, Johannesburg</p>
-                </div>
-
-                <div class="footer-divider"></div>
-
-                <div class="footer-copyright">
-                    © 2026 TX Theatre. All Rights Reserved.
-                </div>
-            </div>
   </footer>
 
   <script>
-    function toggleMenu() {
-      document.getElementById("navLinks").classList.toggle("show");
+    function toggleAppPanel() {
+      document.getElementById('appPanel').classList.toggle('show');
+      document.getElementById('appOverlay').classList.toggle('show');
     }
 
     const cards = document.querySelectorAll('.card');
@@ -624,16 +624,8 @@
     }, { threshold: 0.15 });
 
     cards.forEach(card => observer.observe(card));
-
-    // Close menu when clicking outside
-    document.addEventListener('click', function(e) {
-      const nav = document.querySelector('nav');
-      const links = document.getElementById('navLinks');
-      if (!nav.contains(e.target) && links.classList.contains('show')) {
-        links.classList.remove('show');
-      }
-    });
   </script>
 
 </body>
-</html>
+  </html>
+  
