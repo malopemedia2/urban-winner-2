@@ -261,6 +261,32 @@
       padding-left: 60px;
       padding-right: 60px;
       padding-bottom: 40px;
+      background-image: url('https://res.cloudinary.com/doaj3nv5i/image/upload/v1771523403/hkahwlnip3xutb7tcwmg.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      position: relative;
+      min-height: 60vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+
+    .header h1,
+    .header p {
+      position: relative;
+      z-index: 2;
     }
 
     .header p {
@@ -268,6 +294,29 @@
       font-size: 18px;
       color: var(--muted);
       animation: subtleGlow 4s ease-in-out infinite alternate;
+    }
+
+    /* WELCOME H1 STYLING */
+    .welcome-title {
+      font-size: 48px;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+      letter-spacing: 2px;
+      margin: 10px 0;
+      display: inline-block;
+    }
+
+    .welcome-title .black-text {
+      color: #000;
+      text-shadow: none;
+    }
+
+    .welcome-title .gold-text {
+      color: #ffd700;
+      text-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+      animation: goldSparkle 3s ease-in-out infinite;
+      display: inline-block;
+      letter-spacing: 3px;
     }
 
     /* COLORFUL SPARKLING GOLD TEXT SPANS */
@@ -586,6 +635,7 @@
       .header { padding: 90px 25px 30px; }
       .tx-gold-spark { font-size: 32px; }
       h2 { font-size: 32px; }
+      .welcome-title { font-size: 32px; }
       section { padding: 40px 25px; }
       .app-panel { width: 300px; left: 10px; padding: 15px; }
       .app-item { padding: 12px 4px; }
@@ -668,12 +718,8 @@
 
   <!-- HEADER -->
   <section class="header">
-    <h1 class="tx-gold-spark">
-      <span>Welcome</span>
-      <span>to</span>
-      <span>the</span>
-      <span>TX</span>
-      <span>THEATRE</span>
+    <h1 class="welcome-title">
+      <span class="black-text">Welcome to </span><span class="gold-text">TX</span><span class="black-text"> Theatre</span>
     </h1>
     <p>Experience the magic of live performances, unforgettable shows, and Tembisa pride on stage.</p>
   </section>
