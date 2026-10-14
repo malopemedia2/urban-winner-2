@@ -1,0 +1,97 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Technical Team | TX Theatre</title>
+<style>
+  /* Swap these variables to match txtheatre.co.za exactly */
+  :root {
+    --bg: #0b0b0d;
+    --card: #16161a;
+    --text: #f2f2f2;
+    --muted: #a8a8b0;
+    --accent: #d4a537;
+    --font: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: var(--font); line-height: 1.6; }
+  header { text-align: center; padding: 48px 20px 24px; }
+  header img { width: 90px; height: auto; margin-bottom: 12px; }
+  header h1 { font-size: 2rem; letter-spacing: 3px; text-transform: uppercase; }
+  header p { color: var(--muted); margin-top: 6px; }
+  .back { display: inline-block; margin-top: 16px; color: var(--accent); text-decoration: none; font-size: .9rem; }
+  .back:hover { text-decoration: underline; }
+  h2.section { text-align: center; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; font-size: 1.2rem; margin: 24px 0; }
+  .team { max-width: 1100px; margin: 0 auto; padding: 0 20px 60px; display: grid; gap: 28px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+  .card { background: var(--card); border-radius: 12px; overflow: hidden; border: 1px solid #26262c; transition: transform .25s, border-color .25s; }
+  .card:hover { transform: translateY(-5px); border-color: var(--accent); }
+  .card img { width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block; background: #222; }
+  .info { padding: 20px; }
+  .info h3 { font-size: 1.3rem; text-transform: uppercase; letter-spacing: 1px; }
+  .role { color: var(--accent); font-weight: 600; margin: 4px 0 2px; }
+  .org { color: var(--muted); font-size: .9rem; margin-bottom: 10px; }
+  .bio { color: var(--muted); font-size: .95rem; margin: 12px 0 16px; }
+  .contact a { display: block; color: var(--text); text-decoration: none; font-size: .92rem; margin-top: 4px; word-break: break-all; }
+  .contact a:hover { color: var(--accent); }
+  footer { text-align: center; padding: 24px 20px; color: var(--muted); font-size: .85rem; border-top: 1px solid #1f1f24; }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1773021224/cxrf8nxtezkrz0g3cwd0.png" alt="TX Theatre Logo">
+  <h1>TX Theatre</h1>
+  <p>Where Stories Come Alive on Stage</p>
+  <a class="back" href="/">&larr; Back to Home</a>
+</header>
+
+<h2 class="section">Our Technical Team</h2>
+
+<main class="team">
+
+  <article class="card">
+    <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1791975727/d9za4sbxvdhpr2zb247z.jpg" alt="Kelebogile Nkwane" loading="lazy">
+    <div class="info">
+      <h3>Kelebogile Nkwane</h3>
+      <p class="role">Lights Designer | Sound Engineer</p>
+      <p class="bio">Kelebogile Nkwane is a talented Lights Designer and Sound Engineer. With a passion for theatre and live productions, she specializes in creating powerful lighting atmospheres and delivering clear, quality sound to enhance every performance on stage.</p>
+      <div class="contact">
+        <a href="tel:+27736275611">📞 +27 73 627 5611</a>
+      </div>
+    </div>
+  </article>
+
+  <article class="card">
+    <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1791974835/etmsydm2nnpsxis4sqtr.jpg" alt="Kamogelo Motebejane" loading="lazy">
+    <div class="info">
+      <h3>Kamogelo Motebejane</h3>
+      <p class="role">Set Designer | Sound Engineer</p>
+      <p class="org">TX Theatre</p>
+      <p class="bio">Kamogelo Motebejane is a dedicated Set Designer and Sound Engineer at TX Theatre. With a strong eye for detail and a passion for live performance, he brings stories to life through creative stage designs and quality sound engineering. He is committed to delivering professional and immersive theatre experiences.</p>
+      <div class="contact">
+        <a href="tel:+27824894446">📞 082 489 4446</a>
+        <a href="mailto:kmotebejane446@gmail.com">📧 kmotebejane446@gmail.com</a>
+      </div>
+    </div>
+  </article>
+
+  <article class="card">
+    <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1791976144/va7vlaey2qokywaytgdr.jpg" alt="Neo Malope" loading="lazy">
+    <div class="info">
+      <h3>Neo Malope</h3>
+      <p class="role">Sound Engineer | Software Engineer</p>
+      <p class="bio">Neo Malope is a skilled Sound Engineer and Software Engineer. Passionate about both sound and technology, he combines technical expertise with creativity to deliver high-quality audio solutions and innovative software for live productions and beyond.</p>
+      <div class="contact">
+        <a href="tel:+27792294314">📞 079 229 4314</a>
+        <a href="mailto:malopeneo719@gmail.com">📧 malopeneo719@gmail.com</a>
+      </div>
+    </div>
+  </article>
+
+</main>
+
+<footer>© 2026 TX Theatre. All Rights Reserved.</footer>
+
+</body>
+</html>
