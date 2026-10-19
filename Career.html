@@ -82,6 +82,97 @@
     font-weight: 600;
   }
 
+  .showcase {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 28px 20px 10px;
+  }
+
+  .showcase-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 18px;
+    align-items: stretch;
+  }
+
+  .feature-card,
+  .mini-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+
+  .feature-card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .feature-card img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .feature-copy {
+    padding: 22px 22px 24px;
+  }
+
+  .feature-copy .label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .feature-copy h2 {
+    font-size: clamp(1.5rem, 2vw, 2.2rem);
+    color: var(--primary);
+    line-height: 1.2;
+    margin: 0 0 8px;
+    letter-spacing: -0.04em;
+  }
+
+  .feature-copy p {
+    color: var(--muted);
+    font-size: 0.96rem;
+  }
+
+  .mini-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .mini-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .mini-copy {
+    padding: 16px 16px 18px;
+  }
+
+  .mini-copy h3 {
+    font-size: 1rem;
+    color: var(--primary);
+    margin-bottom: 6px;
+  }
+
+  .mini-copy p {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
   .pills {
     max-width: 1040px;
     display: flex;
@@ -370,8 +461,15 @@
     background: rgba(255,255,255,0.8);
   }
 
+  @media (max-width: 800px) {
+    .showcase-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
   @media (max-width: 640px) {
     .hero { padding-top: 58px; }
+    .mini-grid { grid-template-columns: 1fr; }
     .grid { grid-template-columns: 1fr; }
     .fbar { align-items: flex-start; }
   }
@@ -386,6 +484,53 @@
   <p>We are looking for Theatre and Dance Facilitators to teach youth and adults. Pick the role that fits you and apply.</p>
   <a class="home" href="/">← Back to Home</a>
 </div>
+
+<section class="showcase">
+  <div class="showcase-grid">
+    <article class="feature-card">
+      <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1792062246/qtallnerepaudqajpzgk.jpg" alt="TX Theatre stage performance">
+      <div class="feature-copy">
+        <div class="label">TX Theatre</div>
+        <h2>Creative excellence in performance, training and community arts.</h2>
+        <p>We build confident artists, energetic performers, and memorable productions that connect audiences with powerful storytelling.</p>
+      </div>
+    </article>
+
+    <div class="mini-grid">
+      <article class="mini-card">
+        <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1792062248/nzr0fijhqcro35ywdt4p.jpg" alt="TX Theatre training academy">
+        <div class="mini-copy">
+          <h3>Academy</h3>
+          <p>Training, workshops, and opportunity for emerging performers.</p>
+        </div>
+      </article>
+
+      <article class="mini-card">
+        <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1792062247/frdi5e077ykqof6lnkyp.jpg" alt="TX Theatre artist profile">
+        <div class="mini-copy">
+          <h3>Artists</h3>
+          <p>Celebrating talent, direction, and storytelling from stage to screen.</p>
+        </div>
+      </article>
+
+      <article class="mini-card">
+        <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1792062247/cmawyeootozdrmzmvmyu.jpg" alt="TX Theatre reels and events">
+        <div class="mini-copy">
+          <h3>Reels</h3>
+          <p>Fresh moments, behind-the-scenes insight, and creative energy.</p>
+        </div>
+      </article>
+
+      <article class="mini-card">
+        <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1792062247/pjj2rzln6smsjheeisaf.jpg" alt="Auditions and open calls">
+        <div class="mini-copy">
+          <h3>Auditions</h3>
+          <p>Open calls for performers, dancers, lecturers and facilitators.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
 
 <div class="pills" id="pills">
   <button class="pill on" data-f="">All roles</button>
