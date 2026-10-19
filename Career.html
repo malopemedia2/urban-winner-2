@@ -35,10 +35,36 @@
   a { color: inherit; text-decoration: none; }
 
   .hero {
+    position: relative;
+    overflow: hidden;
     text-align: center;
     padding: 72px 20px 42px;
-    background: radial-gradient(circle at top, rgba(197,155,63,0.12), rgba(15,23,42,0) 52%), #ffffff;
+    background: linear-gradient(180deg, rgba(8,14,24,0.78), rgba(8,14,24,0.72));
     border-bottom: 1px solid var(--line);
+  }
+
+  .hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.7) contrast(1.05) brightness(0.72);
+    z-index: 0;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(10,16,26,0.58), rgba(10,16,26,0.68));
+    z-index: 1;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 760px;
+    margin: 0 auto;
   }
 
   .hero img {
@@ -49,7 +75,8 @@
 
   .ribbon {
     display: inline-block;
-    background: var(--primary);
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
     color: #fff;
     padding: 7px 16px;
     border-radius: 999px;
@@ -65,21 +92,22 @@
     line-height: 1.14;
     letter-spacing: -0.05em;
     margin: 10px 0 12px;
-    color: var(--primary);
+    color: #ffffff;
   }
   .hero h1 span { color: var(--accent); }
   .hero p {
     max-width: 620px;
     margin: 0 auto 16px;
-    color: var(--muted);
+    color: rgba(255,255,255,0.88);
     font-size: 1.02rem;
   }
   .home {
     display: inline-block;
     margin-top: 8px;
-    color: var(--primary-soft);
+    color: #ffffff;
     font-size: 0.92rem;
     font-weight: 600;
+    opacity: 0.9;
   }
 
   .showcase {
@@ -478,11 +506,17 @@
 <body>
 
 <div class="hero">
-  <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1773021224/cxrf8nxtezkrz0g3cwd0.png" alt="TX Theatre Logo">
-  <div><span class="ribbon">Urgently looking</span></div>
-  <h1>Join the <span>TX Theatre</span> Stage Team</h1>
-  <p>We are looking for Theatre and Dance Facilitators to teach youth and adults. Pick the role that fits you and apply.</p>
-  <a class="home" href="/">← Back to Home</a>
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="https://res.cloudinary.com/doaj3nv5i/video/upload/v1781124938/uymg0bn7x6pz1orbhuz5.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1773021224/cxrf8nxtezkrz0g3cwd0.png" alt="TX Theatre Logo">
+    <div><span class="ribbon">Urgently looking</span></div>
+    <h1>Join the <span>TX Theatre</span> Stage Team</h1>
+    <p>We are looking for Theatre and Dance Facilitators to teach youth and adults. Pick the role that fits you and apply.</p>
+    <a class="home" href="/">← Back to Home</a>
+  </div>
 </div>
 
 <section class="showcase">
@@ -514,7 +548,7 @@
       </article>
 
       <article class="mini-card">
-        <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1791965550/njpaisndfey2aorblfeu.jpg" alt="TX Theatre reels and events">
+        <img src="https://res.cloudinary.com/doaj3nv5i/image/upload/v1792062247/cmawyeootozdrmzmvmyu.jpg" alt="TX Theatre reels and events">
         <div class="mini-copy">
           <h3>Reels</h3>
           <p>Fresh moments, behind-the-scenes insight, and creative energy.</p>
