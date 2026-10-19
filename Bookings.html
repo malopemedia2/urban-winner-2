@@ -1,1 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TX Theatre Bookings</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwUEQp3rL3LlKZx2gL6lD0u4kgi7d6JwG5O5mV8R5A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    :root {
+      --bg: #050505;
+      --bg-soft: #0b0b0b;
+      --gold-1: #f7d77d;
+      --gold-2: #d4a62d;
+      --gold-3: #f9e9ae;
+      --gold-4: #8b6a1a;
+      --text: #f9f1cf;
+      --panel: rgba(20, 14, 0, 0.45);
+    }
 
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        radial-gradient(circle at center, rgba(255, 204, 76, 0.08), transparent 30%),
+        linear-gradient(180deg, #0b0b0b 0%, #040404 100%);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      padding: 24px;
+    }
+
+    .booking-page {
+      position: relative;
+      width: min(1200px, 100%);
+      min-height: 1100px;
+      background:
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
+        #020202;
+      border: 4px solid rgba(255, 209, 92, 0.8);
+      box-shadow:
+        0 0 0 6px rgba(255, 204, 76, 0.22),
+        0 30px 80px rgba(0, 0, 0, 0.6),
+        inset 0 0 30px rgba(255, 210, 90, 0.12);
+      overflow: hidden;
+    }
+
+    .booking-page::before,
+    .booking-page::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 18%;
+      height: 100%;
+      background: linear-gradient(180deg, #130d03 0%, #2d2007 25%, #120b01 100%);
+      box-shadow: inset 0 0 30px rgba(255, 217, 107, 0.45);
+      z-index: 0;
+    }
+
+    .booking-page::before {
+      left: 0;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    .booking-page::after {
+      right: 0;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    .curtain {
+      position: absolute;
+      top: 0;
+      width: 18%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+      background: linear-gradient(90deg, rgba(255,215,120,0.15), rgba(255,215,120,0.02), rgba(255,215,120,0.15));
+    }
+
+    .curtain.left {
+      left: 0;
+    }
+
+    .curtain.right {
+      right: 0;
+    }
+
+    .curtain::before,
+    .curtain::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(
+          90deg,
+          rgba(255, 200, 64, 0.12) 0,
+          rgba(255, 200, 64, 0.12) 4px,
+          rgba(0, 0, 0, 0.08) 4px,
+          rgba(0, 0, 0, 0.08) 8px
+        );
+      opacity: .9;
+    }
+
+    .curtain::before {
+      filter: blur(0.5px);
+    }
+
+    .curtain::after {
+      inset: 12% 14% 10% 12%;
+      background: radial-gradient(circle at center, rgba(255, 216, 100, 0.18), rgba(0,0,0,0) 65%);
+      border-left: 5px solid rgba(255, 215, 100, 0.4);
+      border-right: 5px solid rgba(255, 215, 100, 0.4);
+    }
+
+    .stage-floor {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 190px;
+      background: linear-gradient(180deg, rgba(255, 188, 44, 0.22), rgba(255, 166, 0, 0.1)),
+                  linear-gradient(90deg, rgba(0,0,0,1), rgba(25, 18, 4, 0.85), rgba(0,0,0,1));
+      border-top: 4px solid rgba(255, 204, 76, 0.7);
+      box-shadow: inset 0 18px 32px rgba(255, 202, 58, 0.15);
+      z-index: 1;
+    }
+
+    .spotlight {
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(255,255,255,0.48), rgba(255,230,136,0.12) 35%, rgba(0,0,0,0) 68%);
+      filter: blur(8px);
+      z-index: 0;
+      opacity: .8;
+    }
+
+    .spotlight.s1 { left: 10%; top: 0; }
+    .spotlight.s2 { left: 42%; top: 0; }
+    .spotlight.s3 { right: 10%; top: 0; }
+
+    .content {
+      position: relative;
+      z-index: 2;
+      padding: 36px 30px 220px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-top: 12px;
+      margin-bottom: 22px;
+      min-height: 180px;
+    }
+
+    .brand-left {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 150px;
+      position: relative;
+    }
+
+    .brand-mark {
+      position: relative;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 4px solid rgba(255, 211, 98, 0.9);
+      background: radial-gradient(circle at 50% 35%, rgba(255,214,112,0.1), rgba(0,0,0,0.5) 58%);
+      box-shadow: 0 0 30px rgba(255, 211, 98, 0.25);
+      margin-left: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .brand-mark::before,
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      inset: 16px;
+      border-radius: 50%;
+      border: 4px solid rgba(255,211,98,0.8);
+      box-shadow: inset 0 0 20px rgba(255, 211, 98, 0.15);
+    }
+
+    .brand-mark::after {
+      inset: 27px;
+      border-color: rgba(255, 211, 98, 0.9);
+    }
+
+    .brand-mark .inner {
+      position: absolute;
+      width: 82px;
+      height: 82px;
+      border-radius: 50%;
+      background: #050505;
+      border: 3px solid rgba(255, 211, 98, 0.8);
+      box-shadow: inset 0 0 14px rgba(255,211,98,0.16);
+    }
+
+    .brand-mark .inner::before,
+    .brand-mark .inner::after {
+      content: "";
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: rgba(255, 211, 98, 0.85);
+      top: 20px;
+    }
+
+    .brand-mark .inner::before { left: 18px; }
+    .brand-mark .inner::after { right: 18px; }
+
+    .brand-mark .inner .smile {
+      position: absolute;
+      left: 50%;
+      bottom: 18px;
+      width: 32px;
+      height: 18px;
+      border-bottom: 4px solid rgba(255, 211, 98, 0.9);
+      border-radius: 0 0 18px 18px;
+      transform: translateX(-50%);
+    }
+
+    .brand-slogan {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(26px, 3vw, 48px);
+      color: var(--gold-1);
+      font-weight: 400;
+      font-style: italic;
+      text-shadow: 0 0 16px rgba(255, 210, 90, 0.25);
+      letter-spacing: 1px;
+      margin-left: 22px;
+      white-space: nowrap;
+    }
+
+    .brand-right {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      min-height: 120px;
+      position: relative;
+    }
+
+    .brand-icon {
+      width: 140px;
+      height: 140px;
+      position: relative;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.16);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 4px solid rgba(255,211,98,0.8);
+      box-shadow: inset 0 0 22px rgba(255, 215, 90, 0.15);
+    }
+
+    .brand-icon::before,
+    .brand-icon::after {
+      content: "";
+      position: absolute;
+      width: 100px;
+      height: 90px;
+      border: 6px solid rgba(255, 211, 98, 0.95);
+      border-top-color: transparent;
+      border-left-color: transparent;
+      border-radius: 50%;
+      transform: rotate(-18deg);
+      top: 24px;
+      left: 18px;
+      box-shadow: 0 0 18px rgba(255, 211, 98, 0.2);
+    }
+
+    .brand-icon::after {
+      transform: rotate(18deg);
+      left: auto;
+      right: 18px;
+      border-top-color: transparent;
+      border-right-color: transparent;
+      border-left-color: rgba(255,211,98,0.95);
+      border-bottom-color: rgba(255,211,98,0.95);
+    }
+
+    .brand-icon .center {
+      position: absolute;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: rgba(255, 211, 98, 0.07);
+      border: 4px solid rgba(255,211,98,0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      color: rgba(255, 211, 98, 0.9);
+      font-size: 38px;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .brand-text strong {
+      font-size: clamp(48px, 5vw, 92px);
+      line-height: 0.8;
+      font-weight: 900;
+      letter-spacing: 2px;
+      color: var(--gold-1);
+      text-shadow: 0 0 18px rgba(255, 210, 90, 0.25);
+    }
+
+    .brand-text span {
+      font-size: clamp(16px, 1.2vw, 24px);
+      letter-spacing: 2px;
+      color: #f4e9bd;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-top: 8px;
+      position: relative;
+      padding-bottom: 6px;
+    }
+
+    .brand-text span::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(255,211,98,0.9), transparent);
+    }
+
+    .title-section {
+      text-align: center;
+      margin-top: 10px;
+      margin-bottom: 12px;
+      position: relative;
+    }
+
+    .title-section h1 {
+      font-size: clamp(58px, 8vw, 160px);
+      letter-spacing: 1px;
+      line-height: 0.82;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: var(--gold-1);
+      text-shadow: 0 0 22px rgba(255,212,98,0.18);
+      position: relative;
+      display: inline-block;
+    }
+
+    .title-section h1 .script {
+      display: block;
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(102px, 9vw, 210px);
+      font-weight: 400;
+      line-height: 0.75;
+      letter-spacing: 0;
+      margin-top: 4px;
+      color: var(--gold-3);
+      text-shadow: 0 0 18px rgba(255, 212, 98, 0.18);
+      transform: rotate(-4deg);
+    }
+
+    .title-line {
+      width: min(90%, 900px);
+      height: 3px;
+      background: linear-gradient(90deg, transparent, rgba(255,215,120,0.9), rgba(255,215,120,0.9), transparent);
+      margin: 18px auto 10px;
+      box-shadow: 0 0 18px rgba(255, 215, 90, 0.22);
+    }
+
+    .booking-rates {
+      text-align: center;
+      margin: 8px 0 12px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: clamp(18px, 2vw, 28px);
+      color: var(--gold-1);
+    }
+
+    .prices {
+      margin-top: 18px;
+      display: grid;
+      gap: 18px;
+      width: min(990px, 100%);
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .price-row {
+      display: grid;
+      grid-template-columns: 1.7fr 1fr;
+      align-items: center;
+      border: 3px solid rgba(255, 211, 98, 0.9);
+      background: rgba(13, 12, 10, 0.8);
+      box-shadow: inset 0 0 18px rgba(255, 211, 98, 0.1);
+      border-radius: 18px;
+      overflow: hidden;
+      min-height: 94px;
+    }
+
+    .price-row .label {
+      padding: 18px 30px 18px 30px;
+      font-size: clamp(26px, 2.2vw, 40px);
+      color: var(--gold-3);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: 1px;
+      text-align: left;
+      border-right: 3px solid rgba(255, 211, 98, 0.8);
+      background: rgba(20, 18, 12, 0.75);
+    }
+
+    .price-row .label small {
+      display: block;
+      font-size: clamp(18px, 1.5vw, 28px);
+      opacity: 0.88;
+      font-weight: 500;
+      margin-top: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    .price-row .amount {
+      font-size: clamp(34px, 3vw, 62px);
+      font-weight: 900;
+      color: var(--gold-1);
+      text-shadow: 0 0 16px rgba(255, 211, 98, 0.18);
+      background: linear-gradient(90deg, rgba(255, 220, 120, 0.08), rgba(255, 210, 90, 0.2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100%;
+      padding: 18px 12px;
+    }
+
+    .quote {
+      margin: 54px auto 34px;
+      text-align: center;
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(42px, 5vw, 78px);
+      color: var(--gold-2);
+      letter-spacing: 1px;
+      text-shadow: 0 0 20px rgba(255, 211, 98, 0.15);
+      white-space: nowrap;
+    }
+
+    .social-strip {
+      width: min(980px, 100%);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      align-items: stretch;
+      border-top: 2px solid rgba(255,211,98,0.9);
+      border-bottom: 2px solid rgba(255,211,98,0.9);
+      background: rgba(13, 12, 10, 0.55);
+      overflow: hidden;
+      box-shadow: inset 0 0 24px rgba(255, 211, 98, 0.06);
+    }
+
+    .social-item {
+      position: relative;
+      min-height: 136px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--gold-3);
+      padding: 20px 16px;
+    }
+
+    .social-item + .social-item {
+      border-left: 2px solid rgba(255,211,98,0.9);
+    }
+
+    .social-item i {
+      font-size: clamp(26px, 2.5vw, 38px);
+      margin-bottom: 10px;
+      color: var(--gold-1);
+      text-shadow: 0 0 14px rgba(255, 211, 98, 0.25);
+    }
+
+    .social-item .label {
+      font-size: clamp(12px, 1vw, 18px);
+      text-transform: uppercase;
+      color: rgba(255, 220, 120, 0.9);
+      font-weight: 700;
+      letter-spacing: 0.8px;
+    }
+
+    .social-item .handle {
+      font-size: clamp(14px, 1.15vw, 20px);
+      line-height: 1.4;
+      margin-top: 6px;
+      font-weight: 600;
+      color: #f4e7bd;
+    }
+
+    .contact-block {
+      width: min(980px, 100%);
+      margin: 22px auto 0;
+      padding: 18px 26px 12px;
+      background: rgba(17, 14, 10, 0.85);
+      border: 3px solid rgba(255, 211, 98, 0.9);
+      border-radius: 18px;
+      box-shadow: inset 0 0 18px rgba(255, 211, 98, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .contact-block .line {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 260px;
+      justify-content: center;
+      color: var(--gold-3);
+      font-size: clamp(16px, 1.4vw, 24px);
+      font-weight: 700;
+      flex: 1 1 280px;
+    }
+
+    .contact-block i {
+      font-size: clamp(18px, 1.7vw, 28px);
+      color: var(--gold-1);
+      text-shadow: 0 0 16px rgba(255, 211, 98, 0.2);
+    }
+
+    .contact-block a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    @media (max-width: 860px) {
+      .topbar {
+        flex-direction: column;
+        min-height: auto;
+      }
+
+      .brand-left,
+      .brand-right {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .brand-mark {
+        margin-left: 0;
+      }
+
+      .brand-slogan {
+        white-space: normal;
+        text-align: center;
+      }
+
+      .brand-right {
+        flex-wrap: wrap;
+      }
+
+      .brand-text {
+        align-items: center;
+        text-align: center;
+      }
+
+      .social-strip {
+        grid-template-columns: repeat(2, minmax(120px, 1fr));
+      }
+
+      .social-item + .social-item {
+        border-left: 0;
+      }
+
+      .social-item:nth-child(3),
+      .social-item:nth-child(4) {
+        border-top: 2px solid rgba(255,211,98,0.9);
+      }
+
+      .social-item:nth-child(3) {
+        border-left: 0;
+      }
+
+      .price-row {
+        grid-template-columns: 1fr;
+      }
+
+      .price-row .label {
+        border-right: 0;
+        border-bottom: 3px solid rgba(255, 211, 98, 0.8);
+      }
+
+      .quote {
+        white-space: normal;
+        line-height: 1.1;
+      }
+    }
+
+    @media (max-width: 560px) {
+      body {
+        padding: 10px;
+      }
+
+      .content {
+        padding-left: 14px;
+        padding-right: 14px;
+        padding-bottom: 200px;
+      }
+
+      .brand-mark {
+        width: 120px;
+        height: 120px;
+      }
+
+      .brand-icon {
+        width: 110px;
+        height: 110px;
+      }
+
+      .brand-text strong {
+        font-size: 46px;
+      }
+
+      .booking-page::before,
+      .booking-page::after,
+      .curtain {
+        width: 16%;
+      }
+
+      .topbar {
+        margin-top: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="booking-page">
+    <div class="spotlight s1"></div>
+    <div class="spotlight s2"></div>
+    <div class="spotlight s3"></div>
+    <div class="curtain left"></div>
+    <div class="curtain right"></div>
+
+    <div class="content">
+      <div class="topbar">
+        <div class="brand-left">
+          <div class="brand-mark" aria-label="TX Theatre logo">
+            <div class="inner">
+              <div class="smile"></div>
+            </div>
+          </div>
+          <div class="brand-slogan">Theatre for the People</div>
+        </div>
+
+        <div class="brand-right">
+          <div class="brand-icon" aria-label="TX theatre icon">
+            <div class="center">TX</div>
+          </div>
+          <div class="brand-text">
+            <strong>TX</strong>
+            <span>Theatre Productions</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="title-section">
+        <h1>TX Theatre <span class="script">Price List</span></h1>
+        <div class="title-line"></div>
+      </div>
+
+      <div class="booking-rates">Booking Rates</div>
+
+      <div class="prices">
+        <div class="price-row">
+          <div class="label">Full Theatre Package <small>per day</small></div>
+          <div class="amount">R5 000</div>
+        </div>
+
+        <div class="price-row">
+          <div class="label">LED Lights Hire <small>per light</small></div>
+          <div class="amount">R1 000</div>
+        </div>
+
+        <div class="price-row">
+          <div class="label">PA Sound System <small>per day</small></div>
+          <div class="amount">R3 000</div>
+        </div>
+
+        <div class="price-row">
+          <div class="label">Stage Flats <small>each per day</small></div>
+          <div class="amount">R500</div>
+        </div>
+      </div>
+
+      <div class="quote">Create • Perform • Inspire</div>
+
+      <div class="social-strip">
+        <div class="social-item">
+          <i class="fa-brands fa-instagram"></i>
+          <div class="label">IG</div>
+          <div class="handle">@txtheatre</div>
+        </div>
+
+        <div class="social-item">
+          <i class="fa-brands fa-facebook-f"></i>
+          <div class="label">Facebook</div>
+          <div class="handle">The TX Theatre</div>
+        </div>
+
+        <div class="social-item">
+          <i class="fa-brands fa-x-twitter"></i>
+          <div class="label">X</div>
+          <div class="handle">@tx_theatre</div>
+        </div>
+
+        <div class="social-item">
+          <i class="fa-brands fa-tiktok"></i>
+          <div class="label">TikTok</div>
+          <div class="handle">The TX Theatre</div>
+        </div>
+      </div>
+
+      <div class="contact-block">
+        <div class="line"><i class="fa-solid fa-phone"></i> <a href="tel:+27715142823">071 514 2823 / 076 520 0107</a></div>
+        <div class="line"><i class="fa-solid fa-envelope"></i> <a href="mailto:rentals@txtheatre.com">rentals@txtheatre.com</a></div>
+      </div>
+    </div>
+
+    <div class="stage-floor"></div>
+  </div>
+</body>
+</html>
