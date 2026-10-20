@@ -1,0 +1,16 @@
+{
+  "name": "TX Theatre",
+  "short_name": "TXTheatre",
+  "description": "TX Theatre: findme, TX Theatre Academy, The Dialogue, Tembisa Theatre Week, TX News, Career and Bookings",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#B71C1C",
+  "icons": [
+    {
+      "src": "https://txtheatre.co.za/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
