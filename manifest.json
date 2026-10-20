@@ -1,16 +1,35 @@
 {
+  "id": "/",
   "name": "TX Theatre",
   "short_name": "TXTheatre",
-  "description": "TX Theatre: findme, TX Theatre Academy, The Dialogue, Tembisa Theatre Week, TX News, Career and Bookings",
+  "description": "TX Theatre Academy and Productions",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
+  "orientation": "portrait",
   "background_color": "#000000",
   "theme_color": "#B71C1C",
   "icons": [
     {
-      "src": "https://res.cloudinary.com/doaj3nv5i/image/upload/v1773021224/cxrf8nxtezkrz0g3cwd0.png",
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "TX Theatre"
     }
   ]
-}
+} 
