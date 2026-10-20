@@ -8,7 +8,7 @@
   <title>TX Theatre | Welcome</title>
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="manifest" href="/manifest.json"> 
-  
+    <meta name="theme-color" content="#000000">
   <style>
     * {
       margin: 0;
@@ -425,6 +425,7 @@ Where the township claims its rightful place on the national stage.
 
   <!-- Dynamic Gallery Loader -->
   <script>
+          
     const galleryImages = [
       "https://res.cloudinary.com/doaj3nv5i/image/upload/v1771507730/kpry1fwcv8eqnyddcga2.jpg",
       "https://res.cloudinary.com/doaj3nv5i/image/upload/v1771509073/scmjkguqpa0sstwzyitd.jpg",
@@ -442,6 +443,12 @@ Where the township claims its rightful place on the national stage.
       galleryContainer.appendChild(img);
     });
   </script>
+
+  <script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('service-worker.js');
+}
+</script>
 
 </body>
 
