@@ -1,10 +1,10 @@
 {
-  "id": "/",
+  "id": "./",
   "name": "TX Theatre",
   "short_name": "TXTheatre",
   "description": "TX Theatre Academy and Productions",
-  "start_url": "/",
-  "scope": "/",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#000000",
@@ -22,14 +22,5 @@
       "type": "image/png",
       "purpose": "any maskable"
     }
-  ],
-  "screenshots": [
-    {
-      "src": "icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "form_factor": "wide",
-      "label": "TX Theatre"
-    }
   ]
-} 
+}
