@@ -1,0 +1,8 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "za.co.txtheatre.twa",
+    "sha256_cert_fingerprints": ["12:39:1A:D4:6F:B3:4D:C1:31:56:BF:4A:D9:A2:89:E7:A7:39:6B:2C:80:E9:3B:1E:8B:1A:21:86:C6:61:23:43"]
+  }
+}]
